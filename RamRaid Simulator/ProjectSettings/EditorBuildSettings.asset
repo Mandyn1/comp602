@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/IndoorRaidScene/RaidScene_I_1.unity
+    path: Assets/Scenes/Indoor Raid Scene/RaidScene_I_1.unity
     guid: 40d48f0e8dd1661a6b745cdb3ad7639d
   - enabled: 1
-    path: Assets/Scenes/OutDoorRaidScene/RaidScene_O_1.unity
+    path: Assets/Scenes/Enter Raid Scene/RaidScene_O_1.unity
     guid: 04c9fe8b2fa281e21afbb7b12d13e519
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
