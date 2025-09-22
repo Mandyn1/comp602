@@ -8,8 +8,10 @@ using TMPro;
 
 public class RoomList : MonoBehaviourPunCallbacks
 {
+    // Object for generating new rooms on the room list
     public GameObject roomPreFab;
 
+    // Generate room list from connected Photon Service
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         for (int i = 0; i < roomList.Count; i++)
