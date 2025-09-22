@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.UIElements;
 using Photon.Realtime;
 using Photon.Pun.Demo.Cockpit;
+using ExitGames.Client.Photon;
 
 public class CreateJoinRoom : MonoBehaviourPunCallbacks
 {
@@ -15,12 +16,14 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     // Creates and joins room
     public void CreateRoom()
     {
+        PhotonNetwork.NickName = input_UserName.text;
         PhotonNetwork.CreateRoom(input_UserName.text + "'s Room", new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true }, TypedLobby.Default, null);
     }
 
     // Joins existing room
     public void JoinRoom(string roomName)
     {
+        PhotonNetwork.NickName = input_UserName.text;
         PhotonNetwork.JoinRoom(roomName);
     }
 
@@ -28,7 +31,10 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("Joined " + PhotonNetwork.CurrentRoom.Name);
-        print(PhotonNetwork.CountOfPlayersInRooms);
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            print(p.NickName);
+        }
     }
 
     // Leaves current room and returns to lobby
