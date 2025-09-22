@@ -1,8 +1,11 @@
 # comp602
 Repo of the comp602 project Ram Raid Simulator.
 
-# Packages for charles_raidLocation
+# Currently Used Packages
 
-For test Player
+For raidlocation
 - CineMachine
 - Input System
+
+For multiplayer
+- Photon
