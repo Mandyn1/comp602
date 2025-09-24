@@ -11,19 +11,24 @@ using ExitGames.Client.Photon;
 
 public class CreateJoinRoom : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField input_UserName;
+
+    public GameObject roomStage;
+    public GameObject waitingStage;
+
+    public void SetUserName(TMP_InputField input)
+    {
+        PhotonNetwork.NickName = input.text;
+    }
 
     // Creates and joins room
     public void CreateRoom()
     {
-        PhotonNetwork.NickName = input_UserName.text;
-        PhotonNetwork.CreateRoom(input_UserName.text + "'s Room", new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true }, TypedLobby.Default, null);
+        PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room", new RoomOptions() { MaxPlayers = 2, IsVisible = true, IsOpen = true }, TypedLobby.Default, null);
     }
 
     // Joins existing room
     public void JoinRoom(string roomName)
     {
-        PhotonNetwork.NickName = input_UserName.text;
         PhotonNetwork.JoinRoom(roomName);
     }
 
@@ -35,11 +40,22 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         {
             print(p.NickName);
         }
+
+        roomStage.SetActive(false);
+        waitingStage.SetActive(true);
     }
 
     // Leaves current room and returns to lobby
     public void LeaveRoom()
     {
-        PhotonNetwork.LeaveRoom(false);
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+        PhotonNetwork.LeaveRoom();
+        print("Left Room");
+
+        PhotonNetwork.JoinLobby();
     }
 }
