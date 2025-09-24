@@ -16,14 +16,13 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     // Connects user to lobby
     public override void OnConnectedToMaster()
     {
-        print("Connected to master server");
         PhotonNetwork.JoinLobby();
     }
 
     // Moves user to lobby for room selection / creation
     public override void OnJoinedLobby()
     {
-        print("Connected to room lobby");
+        print("Connected to Server");
         loadingStage.SetActive(false);
         usernameStage.SetActive(true);
     }

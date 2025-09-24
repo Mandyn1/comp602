@@ -6,7 +6,6 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine.UIElements;
 using Photon.Realtime;
-using Photon.Pun.Demo.Cockpit;
 using ExitGames.Client.Photon;
 
 public class CreateJoinRoom : MonoBehaviourPunCallbacks

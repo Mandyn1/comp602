@@ -25,5 +25,7 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
             loadingStage.SetActive(false);
             menuStage.SetActive(true);
         }
+
+        print("Disconnected from Server");
     }
 }
