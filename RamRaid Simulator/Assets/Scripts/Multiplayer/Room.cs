@@ -13,9 +13,7 @@ public class Room : MonoBehaviour
     // Connected to button press, joins selected (this) room and moves to waiting room
     public void JoinRoom()
     {
-        GameObject.Find("CreateJoinRoom").GetComponent<CreateJoinRoom>().JoinRoom(Name.text);
-        GameObject.Find("RoomStage").SetActive(false);
-        GameObject.Find("WaitingStage").SetActive(true);
+        GameObject.Find("ServerManager").GetComponent<CreateJoinRoom>().JoinRoom(Name.text);
     }
     
 }
