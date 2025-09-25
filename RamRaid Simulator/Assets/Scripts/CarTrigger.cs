@@ -9,7 +9,7 @@ public class CarTrigger : MonoBehaviour
         if (other.CompareTag("Player")) //if the player is near car menu activate
         {
             carMenuUI.SetActive(true);
-            Time.timeScale = 0f; //pause game
+
         }
     }
 }
