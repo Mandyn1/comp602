@@ -2420,6 +2420,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   photonView: {fileID: 0}
+  player1Score: 0
+  player2Score: 0
+  currentRaidLocation: 
+  policeResponseTime: 0
 --- !u!4 &1074160902
 Transform:
   m_ObjectHideFlags: 0
