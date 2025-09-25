@@ -3,7 +3,7 @@ using UnityEngine;
 public class CarMovement : MonoBehaviour
 {
     //variables
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] public float xSpawn;
     [SerializeField] public float ySpawn;
     private Rigidbody2D rb;

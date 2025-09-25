@@ -36,5 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Outdoor Raid Scene/RaidScene_O_4.unity
     guid: d3563045ce0d681439e151c68d82b6c0
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: e72a9ba930e4c364c85a24e9a76f0be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
