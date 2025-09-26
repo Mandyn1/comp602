@@ -1,11 +1,17 @@
+using JetBrains.Annotations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class BasicMinigameController : MonoBehaviour
 {
     public GameObject playerObj;
     public GameObject menuCanvas;
+    public GameObject counterObj;
+    public GameObject attachedItem;
     private PlayerMovement player;
+    private PointCounter counter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +29,13 @@ public class BasicMinigameController : MonoBehaviour
         {
             Debug.LogError("PlayerMovement component not found on player object!");
         }
+
+        //get the point counter in this scene
+        counter = counterObj.GetComponent<PointCounter>();
+        if (counter == null)
+        {
+            Debug.LogError("point counter is null");
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +50,10 @@ public class BasicMinigameController : MonoBehaviour
         //TODO: Yahya works in this section
         Debug.Log("player chooses to steal!!!");
         this.Close();
+
+        //increment the counter for the player to gain a point
+        counter.Increment();
+        attachedItem.SetActive(false);
     }
 
     public void Leave()
