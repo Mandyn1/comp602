@@ -7,6 +7,9 @@ public class BasicMinigameController : MonoBehaviour
     public GameObject menuCanvas;
     private PlayerMovement player;
 
+    public LootableItem currentTargetItem;
+    public PlayerWallet playerWallet;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,16 +38,23 @@ public class BasicMinigameController : MonoBehaviour
     {
         //player chooses to steal, so gains a point
         //TODO: Yahya works in this section
-        Debug.Log("player chooses to steal!!!");
-        this.Close();
+        Debug.Log($"[Steal] Start. item={(currentTargetItem ? currentTargetItem.name : "NULL")} " +
+                  $"wallet={(playerWallet ? playerWallet.name : "NULL")}");
+
+        int payout = LootSystem.TryStealAndPay(currentTargetItem, playerWallet);
+
+        Debug.Log($"[Steal] payout={payout} stolen={(currentTargetItem && currentTargetItem.IsStolen)} " +
+                  $"balanceAfter={(playerWallet ? playerWallet.Balance : -1)}");
+
+        Close();
     }
 
     public void Leave()
     {
         //player chooses to not steal so do not gain point
         //TODO: Yahya works in this section
-        Debug.Log("player chooses to not steal");
-        this.Close();
+        Debug.Log("Player chose to leave without stealing.");
+        Close();
     }
 
     public void Open()

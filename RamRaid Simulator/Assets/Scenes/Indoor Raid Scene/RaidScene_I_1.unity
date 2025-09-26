@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 437018832}
   - component: {fileID: 437018836}
   - component: {fileID: 437018837}
+  - component: {fileID: 437018838}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -598,6 +599,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8835387, y: 0.8883257}
   m_EdgeRadius: 0
+--- !u!114 &437018838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437018831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4abc0bfa2bbbb4b98bd262f3118669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWallet
+  startingBalance: 0
+  balance: 0
 --- !u!1 &499587452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicMinigameController
   playerObj: {fileID: 437018831}
   menuCanvas: {fileID: 687910071}
+  currentTargetItem: {fileID: 0}
+  playerWallet: {fileID: 0}
 --- !u!1 &812339403
 GameObject:
   m_ObjectHideFlags: 0
@@ -9460,6 +9477,7 @@ GameObject:
   - component: {fileID: 2041256228}
   - component: {fileID: 2041256231}
   - component: {fileID: 2041256230}
+  - component: {fileID: 2041256232}
   m_Layer: 0
   m_Name: Item1
   m_TagString: Untagged
@@ -9672,6 +9690,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0170059, y: 0.49563313}
   m_EdgeRadius: 0
+--- !u!114 &2041256232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041256225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4b4ee464cfe9f4aa557db04fe8335e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  baseValue: 100
+  multiplier: 1
+  canBeStolenOnce: 1
 --- !u!1 &2044473987
 GameObject:
   m_ObjectHideFlags: 0
