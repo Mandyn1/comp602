@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Photon.Realtime;
 
 public class DisconnectFromServer : MonoBehaviourPunCallbacks
 {
@@ -27,5 +28,10 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
         }
 
         print("Disconnected from Server");
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        SceneManager.LoadScene("PlayerDisconnected");
     }
 }

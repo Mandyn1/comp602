@@ -22,6 +22,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     // Moves user to lobby for room selection / creation
     public override void OnJoinedLobby()
     {
+        base.OnJoinedLobby();
         print("Connected to Server");
         loadingStage.SetActive(false);
         usernameStage.SetActive(true);
