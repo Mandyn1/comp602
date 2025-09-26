@@ -29,12 +29,10 @@ public class CarTheft : MonoBehaviour
 
     public void OnStealPressed()
     {
-        Debug.Log($"OnStealPressed CALLED. InZone={playerInCarZone}, Panel={(miniGamePanel != null ? miniGamePanel.name : "NULL")}");
 
         if (playerInCarZone && miniGamePanel != null)
         {
             miniGamePanel.SetActive(true);
-            Debug.Log("Minigame menu activated");
         }
     }
 }

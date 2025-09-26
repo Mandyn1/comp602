@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 550888983}
+  - component: {fileID: 550888984}
   m_Layer: 0
   m_Name: VehicleManager
   m_TagString: Untagged
@@ -150,6 +151,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &550888984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550888982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525feefb8f1df2b43b6ff2ccac779be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleManager
+  car: {fileID: 3481549253420640239, guid: 8034375fe7a7d324cb465f413debd65a, type: 3}
+  motorbike: {fileID: 4607087728768977219, guid: 2ca04c1f54d4b354aa0423c4f6d4f22f, type: 3}
+  spawnPoint: {fileID: 1457507218}
 --- !u!1 &599659352
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +256,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1209161686}
+    TrackingTarget: {fileID: 1457507218}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -272,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 599659352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.63, y: -10.3, z: -10}
+  m_LocalPosition: {x: -9, y: -8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -632,7 +648,7 @@ Transform:
   m_GameObject: {fileID: 1209161685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.63, y: -10.3, z: 0}
+  m_LocalPosition: {x: -27.8, y: -3.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2688,7 +2704,7 @@ Transform:
   m_GameObject: {fileID: 1564274738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.63, y: -10.3, z: -10}
+  m_LocalPosition: {x: -9, y: -8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
