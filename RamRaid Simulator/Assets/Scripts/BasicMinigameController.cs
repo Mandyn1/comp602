@@ -1,4 +1,3 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class BasicMinigameController : MonoBehaviour
@@ -27,7 +26,7 @@ public class BasicMinigameController : MonoBehaviour
     public void DontSteal()
     {
         //player chooses to not steal so do not gain point
-        sceneTrans.tr
+        
 
     }
 }

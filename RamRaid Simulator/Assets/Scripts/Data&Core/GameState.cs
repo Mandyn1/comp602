@@ -9,6 +9,7 @@ public class GameState : MonoBehaviour
     private int roundCounter = 0;
     public int maxRounds = 3;
     private bool hasPlayerSwapped = false;
+    public bool hasGameStarted = false;
 
     public string stage1RaiderScene = "LocationMap";
     public string stage1PoliceScene;
@@ -32,6 +33,7 @@ public class GameState : MonoBehaviour
 
     public void StartGame()
     {
+        hasGameStarted = true;
         GetPlayers();
         ProgressGame();
     }

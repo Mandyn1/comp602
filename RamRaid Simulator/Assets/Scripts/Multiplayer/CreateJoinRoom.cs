@@ -13,10 +13,17 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
     public GameObject roomStage;
     public GameObject waitingStage;
+    public GameObject player1NameText;
+    public GameObject player2NameText;
+    public TMP_InputField nicknameInput;
 
-    public void SetUserName(TMP_InputField input)
+    public void SetUserName()
     {
-        PhotonNetwork.NickName = input.text;
+        PhotonNetwork.NickName = nicknameInput.text;
+
+        player1NameText.GetComponent<TextMeshProUGUI>().SetText("");
+        player2NameText.GetComponent<TextMeshProUGUI>().SetText("");
+        nicknameInput.text = "";
     }
 
     // Creates and joins room
@@ -40,6 +47,14 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
             print(p.NickName);
         }
 
+        player1NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[0].NickName);
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        {
+            player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
+            StartGame();
+        }
+
         roomStage.SetActive(false);
         waitingStage.SetActive(true);
     }
@@ -56,5 +71,22 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         print("Left Room");
 
         PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
+
+        if (!GameObject.Find("GameManager").GetComponent<GameState>().hasGameStarted)
+        {
+            player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
+            StartGame();
+        }
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(3);
+        print("Starting Game");
     }
 }
