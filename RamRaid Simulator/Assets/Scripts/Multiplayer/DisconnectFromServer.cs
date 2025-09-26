@@ -32,6 +32,6 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        SceneManager.LoadScene("PlayerDisconnected");
+        if (SceneManager.GetActiveScene().name != "GameEnd") SceneManager.LoadScene("PlayerDisconnected");
     }
 }
