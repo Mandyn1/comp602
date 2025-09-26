@@ -5,19 +5,20 @@ using Photon.Realtime;
 
 public class GameState : MonoBehaviour
 {
-    public int gameState = 0;
-    public int roundCounter = 0;
+    private int gameState = 0;
+    private int roundCounter = 0;
     public int maxRounds = 3;
-    public bool hasPlayerSwapped = false;
+    private bool hasPlayerSwapped = false;
 
-    public int stage1RaiderSceneNumber;
-    public int stage1PoliceSceneNumber;
-    public int stage2RaiderSceneNumber;
-    public int stage2PoliceSceneNumber;
-    public int stage3RaiderSceneNumber;
-    public int stage3PoliceSceneNumber;
+    public string stage1RaiderScene = "LocationMap";
+    public string stage1PoliceScene;
+    public string stage2RaiderScene;
+    public string stage2PoliceScene;
+    public string stage3RaiderScene;
+    public string stage3PoliceScene;
 
-    public int timer;
+    public int timer = 0;
+    public int maxTimer;
 
     public Player raidPlayer;
     public Player policePlayer;
@@ -29,10 +30,16 @@ public class GameState : MonoBehaviour
         else DontDestroyOnLoad(this.gameObject);
     }
 
+    public void StartGame()
+    {
+        GetPlayers();
+        ProgressGame();
+    }
+
     public void GetPlayers()
     {
-        this.raidPlayer = PlayerData.GetPlayer(1);
-        this.policePlayer = PlayerData.GetPlayer(2);
+        this.raidPlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(1);
+        this.policePlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(2);
     }
 
     public void PlayerSwap()
@@ -71,16 +78,16 @@ public class GameState : MonoBehaviour
         switch (gameState)
         {
             case 1:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage1RaiderSceneNumber);
-                else SceneManager.LoadScene(stage1PoliceSceneNumber);
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage1RaiderScene);
+                else SceneManager.LoadScene(stage1PoliceScene);
                 break;
             case 2:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage2RaiderSceneNumber);
-                else SceneManager.LoadScene(stage2PoliceSceneNumber);
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage2RaiderScene);
+                else SceneManager.LoadScene(stage2PoliceScene);
                 break;
             case 3:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage3RaiderSceneNumber);
-                else SceneManager.LoadScene(stage3PoliceSceneNumber);
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage3RaiderScene);
+                else SceneManager.LoadScene(stage3PoliceScene);
                 break;
             default:
                 EndGame();

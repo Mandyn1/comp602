@@ -8,8 +8,30 @@ public class LocationSelectController : MonoBehaviour
         //transition to the location user selected on the map, first check if selected scene exits
         if (!string.IsNullOrEmpty(location))
         {
+            //inform players
+            GameObject.Find("PlayerManager").GetComponent<SendEvents>().UpdateCurrentRaidLocationEvent(location);
+
             //switch to scene
             SceneManager.LoadScene(location);
+        }
+        else
+        {
+            //print out err
+            Debug.Log("Scene does not exist");
+        }
+    }
+
+    public void selectRaidLocation(string location)
+    {
+        //transition to the location user selected on the map, first check if selected scene exits
+        if (!string.IsNullOrEmpty(location))
+        {
+            //inform managers
+            GameObject.Find("PlayerManager").GetComponent<SendEvents>().UpdateCurrentRaidLocationEvent(location);
+            GameObject.Find("GameManager").GetComponent<SendEvents>().UpdateCurrentRaidLocationEvent(location);
+
+            //switch to scene
+            SceneManager.LoadScene("SelectCarScene");
         }
         else
         {

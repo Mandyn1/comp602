@@ -1274,8 +1274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b49dea0356e5ba46914c4a4b5160597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
-  gameState: 0
-  stage1RaiderSceneNumber: 0
+  maxRounds: 3
+  stage1RaiderSceneNumber: 1
   stage1PoliceSceneNumber: 0
   stage2RaiderSceneNumber: 0
   stage2PoliceSceneNumber: 0
@@ -2400,6 +2400,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1074160902}
   - component: {fileID: 1074160901}
+  - component: {fileID: 1074160904}
+  - component: {fileID: 1074160903}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -2419,7 +2421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e171e07529e28f4eb39f83cbb4ad52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  photonView: {fileID: 0}
   player1Score: 0
   player2Score: 0
   currentRaidLocation: 
@@ -2439,6 +2440,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074160903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074160900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendPlayerEvents
+--- !u!114 &1074160904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074160900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendPlayerEvents
 --- !u!1 &1109368876
 GameObject:
   m_ObjectHideFlags: 0
