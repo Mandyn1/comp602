@@ -3,37 +3,57 @@ using UnityEngine;
 
 public class PolicePlacementManager : MonoBehaviour
 {
-    public Camera cam;                 // drag main camera here in inspector
-    public GameObject policePrefab;    // drag PoliceUnit prefab here
-    public int maxUnits = 3;           // maximum number of police units
+    // this is the camera, needs to be dragged in the inspector
+    public Camera cam;
 
+    // this is the police prefab, drag the prefab here
+    public GameObject policePrefab;
+
+    // number of police units allowed
+    public int maxUnits = 3;
+
+    // keeps track of the police units that get placed
     private List<GameObject> placedUnits = new List<GameObject>();
 
     void Update()
     {
-        // Left click = place a unit
+        // if left mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
+            // check if we can still place more police units
             if (placedUnits.Count < maxUnits)
             {
+                // shoot a ray from the mouse into the world
                 Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+                // check if the ray hits something
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    // spawn a little above ground so it's visible
+                    // spawn police a little above the hit point so it doesn’t clip
                     Vector3 spawnPos = hit.point + Vector3.up * 0.5f;
+
+                    // make the police unit appear
                     GameObject unit = Instantiate(policePrefab, spawnPos, Quaternion.identity);
+
+                    // add it to the list
                     placedUnits.Add(unit);
                 }
             }
         }
 
-        // right click = remove the last placed unit
+        // if right mouse button is clicked
         if (Input.GetMouseButtonDown(1))
         {
+            // check if there are any units to remove
             if (placedUnits.Count > 0)
             {
+                // get the last one
                 GameObject last = placedUnits[placedUnits.Count - 1];
+
+                // remove it from the list
                 placedUnits.RemoveAt(placedUnits.Count - 1);
+
+                // delete it from the game
                 Destroy(last);
             }
         }
