@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = moveInput * moveSpeed;
         }
-
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -47,6 +46,5 @@ public class PlayerMovement : MonoBehaviour
         //unfreezes players movement
         freeze = false;
     }
-
 
 }
