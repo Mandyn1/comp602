@@ -1194,9 +1194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 803044193}
   carMenu: {fileID: 423753526}
-  carInfo: 'Car: Mazda Miata 1997
+  carInfo: 'Car: Honda S2K 1999
 
-    Engine 1.8L'
+    Engine: 1990cc'
 --- !u!212 &543005586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1825,7 +1825,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 0.5803922, g: 0, b: 0.8274511, a: 1}
+  m_Color: {r: 1, g: 0.5490196, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1877,9 +1877,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 803044193}
   carMenu: {fileID: 423753526}
-  carInfo: 'Car: Mazda Miata 1997
+  carInfo: 'Car: Toyota Aqua 2022
 
-    Engine 1.8L'
+    Engine: 1500cc'
 --- !u!70 &775651615
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4075,7 +4075,7 @@ Transform:
   m_GameObject: {fileID: 1077562255}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.26, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16589,9 +16589,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 803044193}
   carMenu: {fileID: 423753526}
-  carInfo: 'Car: Mazda Miata 1997
+  carInfo: 'Car: Porsche 911 2009
 
-    Engine 1.8L'
+    Engine: 3800cc'
 --- !u!212 &1392186460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16751,7 +16751,7 @@ MonoBehaviour:
   carMenu: {fileID: 423753526}
   carInfo: 'Car: Mazda Miata 1997
 
-    Engine 1.8L'
+    Engine: 1800cc'
 --- !u!212 &1403712672
 SpriteRenderer:
   m_ObjectHideFlags: 0
