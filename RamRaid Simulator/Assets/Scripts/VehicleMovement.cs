@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class VehicleMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 8f; 
+    [SerializeField] private float moveSpeed = 8f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
