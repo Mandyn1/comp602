@@ -13,6 +13,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
     public GameObject roomStage;
     public GameObject waitingStage;
+    public GameObject startButton;
+    public GameObject startWaitingText;
     public GameObject player1NameText;
     public GameObject player2NameText;
     public TMP_InputField nicknameInput;
@@ -52,7 +54,9 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
-            StartGame();
+
+            if (PhotonNetwork.CurrentRoom.MasterClientId == PhotonNetwork.LocalPlayer.ActorNumber) startButton.SetActive(true);
+            else startWaitingText.SetActive(true);
         }
 
         roomStage.SetActive(false);
@@ -80,13 +84,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         if (!GameObject.Find("GameManager").GetComponent<GameState>().hasGameStarted)
         {
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
-            StartGame();
+            if (PhotonNetwork.CurrentRoom.MasterClientId == PhotonNetwork.LocalPlayer.ActorNumber) startButton.SetActive(true);
+            else startWaitingText.SetActive(true);
         }
-    }
-
-    IEnumerator StartGame()
-    {
-        yield return new WaitForSeconds(3);
-        print("Starting Game");
     }
 }

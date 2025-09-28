@@ -466,6 +466,55 @@ PolygonCollider2D:
       - {x: -20.921701, y: -22.033138}
       - {x: 21.989183, y: -22.017605}
   m_UseDelaunayMesh: 0
+--- !u!1 &574960691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574960693}
+  - component: {fileID: 574960692}
+  m_Layer: 0
+  m_Name: ServerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &574960692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574960691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3989a17e6484894e92864879e442e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisconnectFromServer
+  waitingStage: {fileID: 0}
+  roomStage: {fileID: 0}
+  usernameStage: {fileID: 0}
+  loadingStage: {fileID: 0}
+  menuStage: {fileID: 0}
+--- !u!4 &574960693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574960691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1758.3638, y: 569.90173, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812339403
 GameObject:
   m_ObjectHideFlags: 0
@@ -15269,3 +15318,4 @@ SceneRoots:
   - {fileID: 966643302}
   - {fileID: 1522044204}
   - {fileID: 161783793}
+  - {fileID: 574960693}
