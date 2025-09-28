@@ -13,7 +13,8 @@ public class MapTransition : MonoBehaviour
     private void Awake()
     {
         //set the confiner variable to the Cinemachine confiner componment from CmCam
-        confiner = FindObjectOfType<CinemachineConfiner2D>();
+        //confiner = FindObjectOfType<CinemachineConfiner2D>();
+        print("Map transition is actually in use, un-comment-out this code!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

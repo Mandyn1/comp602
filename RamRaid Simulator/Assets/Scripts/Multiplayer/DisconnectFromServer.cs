@@ -15,17 +15,10 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
     // Disconnects user from server and returns to main menu
     public void Disconnect()
     {
-        PhotonNetwork.Disconnect();
+        Destroy(GameObject.Find("PlayerManager"));
+        Destroy(GameObject.Find("GameManager"));
 
-        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("MainMenu")) SceneManager.LoadScene("MainMenu");
-        else
-        {
-            waitingStage.SetActive(false);
-            roomStage.SetActive(false);
-            usernameStage.SetActive(false);
-            loadingStage.SetActive(false);
-            menuStage.SetActive(true);
-        }
+        SceneManager.LoadScene("MainMenu");
 
         print("Disconnected from Server");
     }

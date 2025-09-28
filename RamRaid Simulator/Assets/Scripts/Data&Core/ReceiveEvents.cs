@@ -19,12 +19,15 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
     {
         byte eventCode = photonEvent.Code;
 
+        // Update current raid location event
         if (eventCode == SendEvents.UpdateCurrentRaidLocationEventCode)
         {
             string currentRaidLocation = (string)photonEvent.CustomData;
             if (this.gameObject.name == "PlayerManager") this.gameObject.GetComponent<PlayerData>().currentRaidLocation = currentRaidLocation;
             else if (this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().stage2RaiderScene = currentRaidLocation;
         }
+
+        // Update score event
         else if (eventCode == SendEvents.UpdateScoreEventCode && this.gameObject.name == "PlayerManager")
         {
             object[] data = (object[])photonEvent.CustomData;
@@ -34,6 +37,8 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
             if (this.gameObject.GetComponent<PlayerData>().player1.ActorNumber == player.ActorNumber) this.gameObject.GetComponent<PlayerData>().player1Score += score;
             else this.gameObject.GetComponent<PlayerData>().player2Score += score;
         }
+
+        // Finished stage event
         else if (eventCode == SendEvents.FinishedStageEventCode && this.gameObject.name == "GameManager")
         {
             int finishedPlayer = (int)photonEvent.CustomData;
@@ -43,6 +48,8 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
 
             if (this.gameObject.GetComponent<GameState>().playerDone && this.gameObject.GetComponent<GameState>().opponentDone) this.gameObject.GetComponent<GameState>().ProgressGame();
         }
+
+        // Finished raid event
         else if (eventCode == SendEvents.FinishedRaidEventCode && this.gameObject.name == "GameManager")
         {
             this.gameObject.GetComponent<GameState>().ProgressGame();

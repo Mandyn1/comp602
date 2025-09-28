@@ -16,7 +16,7 @@ public class PlayerData : MonoBehaviour
 
     void Awake()
     {
-        if (FindObjectsOfType<PlayerData>().Length > 1) Destroy(this.gameObject);
+        if (FindObjectsByType<PlayerData>(FindObjectsSortMode.None).Length > 1) Destroy(this.gameObject);
         else DontDestroyOnLoad(this.gameObject);
     }
 

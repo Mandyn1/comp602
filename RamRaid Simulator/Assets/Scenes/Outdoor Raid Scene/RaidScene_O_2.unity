@@ -10929,7 +10929,7 @@ MonoBehaviour:
   maxRounds: 3
   hasGameStarted: 0
   stage1RaiderScene: LocationMap
-  stage1PoliceScene: CarPlacer
+  stage1PoliceScene: Car Placer
   stage2RaiderScene: 
   stage2PoliceScene: PoliceWaiting
   stage3RaiderScene: Stage3
