@@ -3127,8 +3127,6 @@ GameObject:
   - component: {fileID: 1074160901}
   - component: {fileID: 1074160904}
   - component: {fileID: 1074160903}
-  - component: {fileID: 1074160906}
-  - component: {fileID: 1074160905}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -3191,30 +3189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SendPlayerEvents
---- !u!114 &1074160905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074160900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SendEvents
---- !u!114 &1074160906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074160900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
 --- !u!1 &1109368876
 GameObject:
   m_ObjectHideFlags: 0

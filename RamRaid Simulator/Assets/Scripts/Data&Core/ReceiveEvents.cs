@@ -22,14 +22,16 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         // Update current raid location event
         if (eventCode == SendEvents.UpdateCurrentRaidLocationEventCode)
         {
+            print("Received UpdateCurrentRaidLocation Event");
             string currentRaidLocation = (string)photonEvent.CustomData;
             if (this.gameObject.name == "PlayerManager") this.gameObject.GetComponent<PlayerData>().currentRaidLocation = currentRaidLocation;
             else if (this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().stage2RaiderScene = currentRaidLocation;
         }
 
         // Update score event
-        else if (eventCode == SendEvents.UpdateScoreEventCode && this.gameObject.name == "PlayerManager")
+        if (eventCode == SendEvents.UpdateScoreEventCode && this.gameObject.name == "PlayerManager")
         {
+            print("Received UpdateScore Event");
             object[] data = (object[])photonEvent.CustomData;
             int score = (int)data[0];
             Player player = (Player)data[1];
@@ -39,8 +41,9 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         }
 
         // Finished stage event
-        else if (eventCode == SendEvents.FinishedStageEventCode && this.gameObject.name == "GameManager")
+        if (eventCode == SendEvents.FinishedStageEventCode && this.gameObject.name == "GameManager")
         {
+            print("Received FinishedStage Event");
             int finishedPlayer = (int)photonEvent.CustomData;
 
             if (finishedPlayer == PhotonNetwork.LocalPlayer.ActorNumber) this.gameObject.GetComponent<GameState>().playerDone = true;
@@ -50,10 +53,15 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         }
 
         // Finished raid event
-        else if (eventCode == SendEvents.FinishedRaidEventCode && this.gameObject.name == "GameManager")
+        if (eventCode == SendEvents.FinishedRaidEventCode && this.gameObject.name == "GameManager")
         {
+            print("Recieved FinishedRaid Event");
             this.gameObject.GetComponent<GameState>().ProgressGame();
         }
-        else if (eventCode == SendEvents.StartGameEventCode && this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().StartGame();
+        else if (eventCode == SendEvents.StartGameEventCode && this.gameObject.name == "GameManager")
+        {
+            print("Received StartGame Event");
+            this.gameObject.GetComponent<GameState>().StartGame();
+        }
     }
 }

@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
     private bool hasPlayerSwapped = false;
     public bool hasGameStarted = false;
 
-    public string stage1RaiderScene = "LocationMap";
+    public string stage1RaiderScene = "SelectCarScene";
     public string stage1PoliceScene = "Car Placer";
     public string stage2RaiderScene;
     public string stage2PoliceScene = "PoliceWaiting";
@@ -38,7 +38,7 @@ public class GameState : MonoBehaviour
     public void StartGame()
     {
         hasGameStarted = true;
-        PhotonNetwork.AutomaticallySyncScene = false;
+        
         GetPlayers();
         ProgressGame();
     }
@@ -60,7 +60,8 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene("GameEnd");
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.LoadLevel("GameEnd");
     }
 
     public void ProgressGame()
@@ -70,7 +71,7 @@ public class GameState : MonoBehaviour
         playerDone = false;
         opponentDone = false;
 
-        if (gameState > 3)
+        if (gameState > 4)
         {
             roundCounter++;
             gameState = 1;
@@ -89,44 +90,68 @@ public class GameState : MonoBehaviour
         switch (gameState)
         {
             case 1:
+                PhotonNetwork.AutomaticallySyncScene = true;
+                PhotonNetwork.LoadLevel("LocationMap");
+                PhotonNetwork.AutomaticallySyncScene = false;
+                break;
+
+            case 2:
+                PhotonNetwork.AutomaticallySyncScene = true;
                 if (PhotonNetwork.IsMasterClient)
                 {
                     if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber)
                     {
                         PhotonNetwork.LoadLevel(stage1PoliceScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
                         PhotonNetwork.LoadLevel(stage1RaiderScene);
                     }
                     else
                     {
                         PhotonNetwork.LoadLevel(stage1RaiderScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
                         PhotonNetwork.LoadLevel(stage1PoliceScene);
                     }
                 }
-                else
+                break;
+
+            case 3:
+                PhotonNetwork.AutomaticallySyncScene = true;
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) PhotonNetwork.LoadLevel(stage1RaiderScene);
-                    else PhotonNetwork.LoadLevel(stage1PoliceScene);
+                    if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber)
+                    {
+                        PhotonNetwork.LoadLevel(stage2PoliceScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
+                        PhotonNetwork.LoadLevel("RaidScene_I_" + stage2RaiderScene);
+                    }
+                    else
+                    {
+                        PhotonNetwork.LoadLevel("RaidScene_I_" + stage2RaiderScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
+                        PhotonNetwork.LoadLevel(stage2PoliceScene);
+                    }
+                }
+                break;
+                
+            case 4:
+                PhotonNetwork.AutomaticallySyncScene = true;
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber)
+                    {
+                        PhotonNetwork.LoadLevel(stage3PoliceScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
+                        PhotonNetwork.LoadLevel(stage3RaiderScene);
+                    }
+                    else
+                    {
+                        PhotonNetwork.LoadLevel(stage3RaiderScene);
+                        PhotonNetwork.AutomaticallySyncScene = false;
+                        PhotonNetwork.LoadLevel(stage3PoliceScene);
+                    }
                 }
                 break;
 
-            case 2:
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) PhotonNetwork.LoadLevel(stage2PoliceScene);
-                    else PhotonNetwork.LoadLevel("RaidScene_O_" + stage2RaiderScene);
-                }
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene("RaidScene_O_" + stage2RaiderScene);
-                else SceneManager.LoadScene(stage2PoliceScene);
-                break;
-            case 3:
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) PhotonNetwork.LoadLevel(stage3PoliceScene);
-                    else PhotonNetwork.LoadLevel(stage3RaiderScene);
-                }
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage3RaiderScene);
-                else SceneManager.LoadScene(stage3PoliceScene);
-                break;
             default:
                 EndGame();
                 break;
