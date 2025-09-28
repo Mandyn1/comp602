@@ -9,6 +9,7 @@ public class SendEvents : MonoBehaviourPunCallbacks
     public const byte UpdateScoreEventCode = 2;
     public const byte FinishedStageEventCode = 3;
     public const byte FinishedRaidEventCode = 4;
+    public const byte StartGameEventCode = 5;
 
     public void UpdateCurrentRaidLocationEvent(string currentRaidLocation)
     {
@@ -21,18 +22,24 @@ public class SendEvents : MonoBehaviourPunCallbacks
         object[] data = { score, player };
 
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(UpdateCurrentRaidLocationEventCode, data, raiseEventOptions, SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(UpdateScoreEventCode, data, raiseEventOptions, SendOptions.SendReliable);
     }
 
     public void FinishedStageEvent()
     {
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(UpdateCurrentRaidLocationEventCode, PhotonNetwork.LocalPlayer.ActorNumber, raiseEventOptions, SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(FinishedStageEventCode, PhotonNetwork.LocalPlayer.ActorNumber, raiseEventOptions, SendOptions.SendReliable);
     }
 
     public void FinishedRaidEvent()
     {
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(UpdateCurrentRaidLocationEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(FinishedRaidEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    public void StartGame()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        PhotonNetwork.RaiseEvent(StartGameEventCode, null, raiseEventOptions, SendOptions.SendReliable);
     }
 }

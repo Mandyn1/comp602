@@ -47,5 +47,6 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         {
             this.gameObject.GetComponent<GameState>().ProgressGame();
         }
+        else if (eventCode == SendEvents.StartGameEventCode && this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().StartGame();
     }
 }

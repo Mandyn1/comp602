@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Linq;
 
 public class PlayerData : MonoBehaviour
 {
@@ -21,15 +22,20 @@ public class PlayerData : MonoBehaviour
 
     public void GetPlayers()
     {
-        player1 = PhotonNetwork.CurrentRoom.Players[0];
-        player2 = PhotonNetwork.CurrentRoom.Players[1];
+        if (PhotonNetwork.CurrentRoom.MasterClientId == PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            player1 = PhotonNetwork.CurrentRoom.Players.ElementAt(0).Value;
+            player2 = PhotonNetwork.CurrentRoom.Players.ElementAt(1).Value;
+        }
+        else
+        {
+            player2 = PhotonNetwork.CurrentRoom.Players.ElementAt(0).Value;
+            player1 = PhotonNetwork.CurrentRoom.Players.ElementAt(1).Value;
+        }
     }
 
     public Player SendPlayer(int playerNumber)
     {
-
-        if (player1 == null) GetPlayers();
-
         switch (playerNumber)
         {
             case 1:

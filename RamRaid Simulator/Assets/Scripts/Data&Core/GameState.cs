@@ -28,6 +28,7 @@ public class GameState : MonoBehaviour
     public bool opponentDone = false;
 
 
+
     void Awake()
     {
         if (FindObjectsOfType<PlayerData>().Length > 1) Destroy(this.gameObject);
@@ -37,12 +38,14 @@ public class GameState : MonoBehaviour
     public void StartGame()
     {
         hasGameStarted = true;
+        PhotonNetwork.AutomaticallySyncScene = false;
         GetPlayers();
         ProgressGame();
     }
 
     public void GetPlayers()
     {
+        GameObject.Find("PlayerManager").GetComponent<PlayerData>().GetPlayers();
         this.raidPlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(1);
         this.policePlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(2);
     }

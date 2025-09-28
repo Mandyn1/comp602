@@ -25,6 +25,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
         player1NameText.GetComponent<TextMeshProUGUI>().SetText("");
         player2NameText.GetComponent<TextMeshProUGUI>().SetText("");
+        startWaitingText.SetActive(false);
+        startButton.SetActive(false);
         nicknameInput.text = "";
     }
 
@@ -44,10 +46,6 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("Joined " + PhotonNetwork.CurrentRoom.Name);
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            print(p.NickName);
-        }
 
         player1NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[0].NickName);
 
