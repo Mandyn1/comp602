@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outdoor Raid Scene/RaidScene_O_4.unity
     guid: d3563045ce0d681439e151c68d82b6c0
+  - enabled: 1
+    path: Assets/Scenes/Car Theft Scene/SelectCarScene.unity
+    guid: b048d71e3d15aa14197c33416f289ece
+  - enabled: 1
+    path: Assets/Scenes/Car Theft Scene/WaitingScene.unity
+    guid: 6ee9b11ab5e24ea4ea1635ed9666a966
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e72a9ba930e4c364c85a24e9a76f0be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
