@@ -321,7 +321,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: RaidScene_O_2
+            m_StringArgument: SelectCarScene
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1673127567}
@@ -575,7 +575,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: RaidScene_O_3
+            m_StringArgument: SelectCarScene
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1673127567}
@@ -693,7 +693,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: RaidScene_O_4
+            m_StringArgument: SelectCarScene
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1673127567}
@@ -1095,13 +1095,15 @@ MonoBehaviour:
   maxRounds: 3
   hasGameStarted: 0
   stage1RaiderScene: LocationMap
-  stage1PoliceScene: 
+  stage1PoliceScene: CarPlacer
   stage2RaiderScene: 
-  stage2PoliceScene: 
-  stage3RaiderScene: 
-  stage3PoliceScene: 
+  stage2PoliceScene: PoliceWaiting
+  stage3RaiderScene: Stage3
+  stage3PoliceScene: Stage3
   timer: 0
   maxTimer: 0
+  playerDone: 0
+  opponentDone: 0
 --- !u!4 &1254109823
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,7 +1684,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: RaidScene_O_1
+            m_StringArgument: SelectCarScene
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1673127567}

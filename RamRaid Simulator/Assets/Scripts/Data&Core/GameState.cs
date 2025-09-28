@@ -12,17 +12,20 @@ public class GameState : MonoBehaviour
     public bool hasGameStarted = false;
 
     public string stage1RaiderScene = "LocationMap";
-    public string stage1PoliceScene;
+    public string stage1PoliceScene = "CarPlacer";
     public string stage2RaiderScene;
-    public string stage2PoliceScene;
-    public string stage3RaiderScene;
-    public string stage3PoliceScene;
+    public string stage2PoliceScene = "PoliceWaiting";
+    public string stage3RaiderScene = "Stage3";
+    public string stage3PoliceScene = "Stage3";
 
     public int timer = 0;
     public int maxTimer;
 
     public Player raidPlayer;
     public Player policePlayer;
+
+    public bool playerDone = false;
+    public bool opponentDone = false;
 
 
     void Awake()
@@ -54,12 +57,15 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
-        
+        SceneManager.LoadScene("GameEnd");
     }
 
     public void ProgressGame()
     {
         gameState++;
+
+        playerDone = false;
+        opponentDone = false;
 
         if (gameState > 3)
         {
@@ -84,7 +90,7 @@ public class GameState : MonoBehaviour
                 else SceneManager.LoadScene(stage1PoliceScene);
                 break;
             case 2:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage2RaiderScene);
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene("RaidScene_O_" + stage2RaiderScene);
                 else SceneManager.LoadScene(stage2PoliceScene);
                 break;
             case 3:

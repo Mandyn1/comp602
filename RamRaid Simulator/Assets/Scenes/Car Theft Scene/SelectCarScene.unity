@@ -1977,13 +1977,15 @@ MonoBehaviour:
   maxRounds: 3
   hasGameStarted: 0
   stage1RaiderScene: LocationMap
-  stage1PoliceScene: 
+  stage1PoliceScene: CarPlacer
   stage2RaiderScene: 
-  stage2PoliceScene: 
-  stage3RaiderScene: 
-  stage3PoliceScene: 
+  stage2PoliceScene: PoliceWaiting
+  stage3RaiderScene: Stage3
+  stage3PoliceScene: Stage3
   timer: 0
   maxTimer: 0
+  playerDone: 0
+  opponentDone: 0
 --- !u!4 &801389797
 Transform:
   m_ObjectHideFlags: 0

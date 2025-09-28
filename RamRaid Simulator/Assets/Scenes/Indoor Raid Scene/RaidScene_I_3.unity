@@ -119,6 +119,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &129751756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129751760}
+  - component: {fileID: 129751759}
+  - component: {fileID: 129751758}
+  - component: {fileID: 129751757}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &129751757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129751756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendEvents
+--- !u!114 &129751758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129751756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
+--- !u!114 &129751759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129751756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e171e07529e28f4eb39f83cbb4ad52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  player1Score: 0
+  player2Score: 0
+  currentRaidLocation: 
+  policeResponseTime: 0
+--- !u!4 &129751760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129751756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.09208, y: 4.55277, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169181581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1614,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823032679}
   m_CullTransparentMesh: 1
+--- !u!1 &826688520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826688524}
+  - component: {fileID: 826688523}
+  - component: {fileID: 826688522}
+  - component: {fileID: 826688521}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &826688521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826688520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
+--- !u!114 &826688522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826688520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendEvents
+--- !u!114 &826688523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826688520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b49dea0356e5ba46914c4a4b5160597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameState
+  maxRounds: 3
+  hasGameStarted: 0
+  stage1RaiderScene: LocationMap
+  stage1PoliceScene: CarPlacer
+  stage2RaiderScene: 
+  stage2PoliceScene: PoliceWaiting
+  stage3RaiderScene: Stage3
+  stage3PoliceScene: Stage3
+  timer: 0
+  maxTimer: 0
+  playerDone: 0
+  opponentDone: 0
+--- !u!4 &826688524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826688520}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.09208, y: 4.55277, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966643301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1707,7 @@ GameObject:
   - component: {fileID: 966643302}
   - component: {fileID: 966643304}
   - component: {fileID: 966643305}
+  - component: {fileID: 966643306}
   m_Layer: 0
   m_Name: ExitWaypoint
   m_TagString: Untagged
@@ -1632,6 +1789,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   transitionTo: RaidScene_O_1
+--- !u!114 &966643306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966643301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41d87208a791fe489f7c341301e18a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinishRaid
 --- !u!1 &993948388
 GameObject:
   m_ObjectHideFlags: 0
@@ -10016,3 +10185,5 @@ SceneRoots:
   - {fileID: 687910075}
   - {fileID: 1918481826}
   - {fileID: 529571033}
+  - {fileID: 826688524}
+  - {fileID: 129751760}

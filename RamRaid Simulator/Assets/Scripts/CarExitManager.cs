@@ -23,7 +23,7 @@ public class CarExitManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy duplicate
         }
-        
+
         //when the scene will be loaded next they will need to be exiting, so need to:
         //- change car to be moving down
         //- spawn the car just outside the shop
@@ -46,7 +46,10 @@ public class CarExitManager : MonoBehaviour
                     movement.moveInput = Vector2.down;
                 }
             }
-            
+            // must be reversed again to account for additional raids - josh
+            hasEntered = false;
+
+            GameObject.Find("GameManager").GetComponent<SendEvents>().FinishedRaidEvent();
         }
     }
 
