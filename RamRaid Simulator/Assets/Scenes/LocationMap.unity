@@ -324,6 +324,18 @@ MonoBehaviour:
             m_StringArgument: RaidScene_O_2
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1673127567}
+          m_TargetAssemblyTypeName: SendEvents, Assembly-CSharp
+          m_MethodName: UpdateCurrentRaidLocationEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 2
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &142715454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +578,18 @@ MonoBehaviour:
             m_StringArgument: RaidScene_O_3
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1673127567}
+          m_TargetAssemblyTypeName: SendEvents, Assembly-CSharp
+          m_MethodName: UpdateCurrentRaidLocationEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 3
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &173226435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,6 +694,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: RaidScene_O_4
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1673127567}
+          m_TargetAssemblyTypeName: SendEvents, Assembly-CSharp
+          m_MethodName: UpdateCurrentRaidLocationEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 4
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &215480325
@@ -1001,6 +1037,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1254109819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254109823}
+  - component: {fileID: 1254109822}
+  - component: {fileID: 1254109821}
+  - component: {fileID: 1254109820}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1254109820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254109819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendEvents
+--- !u!114 &1254109821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254109819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
+--- !u!114 &1254109822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254109819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b49dea0356e5ba46914c4a4b5160597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameState
+  maxRounds: 3
+  hasGameStarted: 0
+  stage1RaiderScene: LocationMap
+  stage1PoliceScene: 
+  stage2RaiderScene: 
+  stage2PoliceScene: 
+  stage3RaiderScene: 
+  stage3PoliceScene: 
+  timer: 0
+  maxTimer: 0
+--- !u!4 &1254109823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254109819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.78879, y: -2.91804, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388285758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1253,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388285758}
   m_CullTransparentMesh: 1
+--- !u!1 &1673127566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673127570}
+  - component: {fileID: 1673127569}
+  - component: {fileID: 1673127568}
+  - component: {fileID: 1673127567}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1673127567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673127566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f6ed039d8fd74883395d56f1e4502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SendEvents
+--- !u!114 &1673127568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673127566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
+--- !u!114 &1673127569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673127566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e171e07529e28f4eb39f83cbb4ad52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  player1Score: 0
+  player2Score: 0
+  currentRaidLocation: 
+  policeResponseTime: 0
+--- !u!4 &1673127570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673127566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.78879, y: -2.91804, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735978099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1685,18 @@ MonoBehaviour:
             m_StringArgument: RaidScene_O_1
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1673127567}
+          m_TargetAssemblyTypeName: SendEvents, Assembly-CSharp
+          m_MethodName: UpdateCurrentRaidLocationEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 1
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1932182062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,3 +1742,5 @@ SceneRoots:
   - {fileID: 41118960}
   - {fileID: 1764622984}
   - {fileID: 1049249380}
+  - {fileID: 1673127570}
+  - {fileID: 1254109823}

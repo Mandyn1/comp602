@@ -24,22 +24,19 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         {
             string currentRaidLocation = (string)photonEvent.CustomData;
             if (this.gameObject.name == "PlayerManager") this.gameObject.GetComponent<PlayerData>().currentRaidLocation = currentRaidLocation;
-            else if (this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().stage2RaiderScene = currentRaidLocation;
+            else if (this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().stage2RaiderScene = "RaidScene_O_" + currentRaidLocation;
         }
-        else if (eventCode == SendEvents.UpdateScoreEventCode)
+        else if (eventCode == SendEvents.UpdateScoreEventCode && this.gameObject.name == "PlayerManager")
         {
-            if (this.gameObject.name == "PlayerManager")
-            {
-                object[] data = (object[])photonEvent.CustomData;
-                int score = (int)data[0];
-                Player player = (Player)data[1];
+            object[] data = (object[])photonEvent.CustomData;
+            int score = (int)data[0];
+            Player player = (Player)data[1];
 
-                if (this.gameObject.GetComponent<PlayerData>().player1.ActorNumber == player.ActorNumber)
-                {
-                    this.gameObject.GetComponent<PlayerData>().player1Score += score;
-                }
-                else this.gameObject.GetComponent<PlayerData>().player2Score += score;
+            if (this.gameObject.GetComponent<PlayerData>().player1.ActorNumber == player.ActorNumber)
+            {
+                this.gameObject.GetComponent<PlayerData>().player1Score += score;
             }
+            else this.gameObject.GetComponent<PlayerData>().player2Score += score;
         }
     }
 }
