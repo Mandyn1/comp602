@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarTheftMiniGame : MonoBehaviour
 {
-    [SerializeField] private VehicleManager vehicleManager;
+    [SerializeField] private string waitingSceneName = "WaitingScene";
 
-    public void StartMiniGame(GameObject theftPlayer, GameObject targetVehicle)
+    public void OnWin()
     {
-        Debug.Log("starting car theft mini game");
+        PlayerPrefs.SetString("Vehicle", "Car");
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(waitingSceneName);
+    }
 
-        //placeholder 
-        bool win = Random.value > 0.5f;
-
-        if (win) vehicleManager.CompleteTheft(theftPlayer, targetVehicle);
-        else vehicleManager.FailTheft(theftPlayer);
+    public void OnLose()
+    {
+        PlayerPrefs.SetString("Vehicle", "Motorbike");
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(waitingSceneName);
     }
 }
+

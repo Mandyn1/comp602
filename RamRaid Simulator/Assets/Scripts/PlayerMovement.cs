@@ -46,4 +46,5 @@ public class PlayerMovement : MonoBehaviour
         //unfreezes players movement
         freeze = false;
     }
+
 }
