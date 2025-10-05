@@ -5,43 +5,38 @@ using Photon.Realtime;
 
 public class GameState : MonoBehaviour
 {
-    private int gameState = 0;
-    private int roundCounter = 0;
+    public int gameState = 0;
+    public int roundCounter = 0;
     public int maxRounds = 3;
-    private bool hasPlayerSwapped = false;
-    public bool hasGameStarted = false;
+    public bool hasPlayerSwapped = false;
 
-    public string stage1RaiderScene = "LocationMap";
-    public string stage1PoliceScene;
-    public string stage2RaiderScene;
-    public string stage2PoliceScene;
-    public string stage3RaiderScene;
-    public string stage3PoliceScene;
+    public int currentRaidLocation;
 
     public int timer = 0;
     public int maxTimer;
+    public float policeResponseTime;
 
     public Player raidPlayer;
     public Player policePlayer;
 
 
-    void Awake()
+    void Start()
     {
-        if (FindObjectsOfType<PlayerData>().Length > 1) Destroy(this.gameObject);
-        else DontDestroyOnLoad(this.gameObject);
+        if (raidPlayer == null) GetPlayers();
+        gameState = 0;
+        ProgressGame();
     }
 
-    public void StartGame()
+    public void Reset()
     {
-        hasGameStarted = true;
-        GetPlayers();
-        ProgressGame();
+        PhotonNetwork.AutomaticallySyncScene = true;
+        if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("GameLoop");
     }
 
     public void GetPlayers()
     {
-        this.raidPlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(1);
-        this.policePlayer = GameObject.Find("PlayerManager").GetComponent<PlayerData>().SendPlayer(2);
+        this.raidPlayer = gameObject.GetComponent<PlayerData>().SendPlayer(1);
+        this.policePlayer = gameObject.GetComponent<PlayerData>().SendPlayer(2);
     }
 
     public void PlayerSwap()
@@ -54,42 +49,38 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
-        
+        PhotonNetwork.AutomaticallySyncScene = true;
+        if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("EndGame");
     }
 
     public void ProgressGame()
     {
         gameState++;
 
-        if (gameState > 3)
+        if (PhotonNetwork.IsMasterClient)
         {
-            roundCounter++;
-            gameState = 1;
-        }
-        if (roundCounter > maxRounds)
-        {
-            if (hasPlayerSwapped) EndGame();
-            else
+            if (gameState > 3)
             {
-                PlayerSwap();
-                roundCounter = 1;
+                gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
             }
         }
-
 
         switch (gameState)
         {
             case 1:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage1RaiderScene);
-                else SceneManager.LoadScene(stage1PoliceScene);
+                gameObject.GetComponent<ViewStorage>().HideAll();
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().raider_S1_LocationMap.SetActive(true);
+                else gameObject.GetComponent<ViewStorage>().police_S1_CarPlacer.SetActive(true);
                 break;
             case 2:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage2RaiderScene);
-                else SceneManager.LoadScene(stage2PoliceScene);
+                gameObject.GetComponent<ViewStorage>().HideAll();
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
+                else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             case 3:
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) SceneManager.LoadScene(stage3RaiderScene);
-                else SceneManager.LoadScene(stage3PoliceScene);
+                gameObject.GetComponent<ViewStorage>().HideAll();
+                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
+                else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             default:
                 EndGame();

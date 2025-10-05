@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.UIElements;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.SceneManagement;
 
 public class CreateJoinRoom : MonoBehaviourPunCallbacks
 {
@@ -52,7 +53,6 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
-            StartGame();
         }
 
         roomStage.SetActive(false);
@@ -77,16 +77,15 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     {
         base.OnPlayerEnteredRoom(newPlayer);
 
-        if (!GameObject.Find("GameManager").GetComponent<GameState>().hasGameStarted)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
-            StartGame();
         }
     }
 
-    IEnumerator StartGame()
+    public void StartGame()
     {
-        yield return new WaitForSeconds(3);
-        print("Starting Game");
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.LoadLevel("GameLoop");
     }
 }

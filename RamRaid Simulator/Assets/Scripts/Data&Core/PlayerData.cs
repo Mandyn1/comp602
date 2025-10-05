@@ -10,19 +10,19 @@ public class PlayerData : MonoBehaviour
     public int player1Score;
     public int player2Score;
 
-    public string currentRaidLocation;
-    public float policeResponseTime;
-
-    void Awake()
-    {
-        if (FindObjectsOfType<PlayerData>().Length > 1) Destroy(this.gameObject);
-        else DontDestroyOnLoad(this.gameObject);
-    }
+    public int player1Bank;
+    public int player2Bank;
 
     public void GetPlayers()
     {
         player1 = PhotonNetwork.CurrentRoom.Players[0];
         player2 = PhotonNetwork.CurrentRoom.Players[1];
+    }
+
+    public void ResetBank()
+    {
+        player1Bank = 0;
+        player2Bank = 0;
     }
 
     public Player SendPlayer(int playerNumber)
