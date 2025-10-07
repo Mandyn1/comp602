@@ -23,8 +23,11 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
-        localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
-        SetPlayers();
+        if (localPlayerNumber == null)
+        {
+            localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+            SetPlayers();
+        }
         
         gameState = 0;
         ProgressGame();
