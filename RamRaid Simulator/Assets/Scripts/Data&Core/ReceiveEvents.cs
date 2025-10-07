@@ -34,11 +34,7 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
             int score = (int)data[0];
             Player player = (Player)data[1];
 
-            if (gameObject.GetComponent<PlayerData>().player1.ActorNumber == player.ActorNumber)
-            {
-                gameObject.GetComponent<PlayerData>().player1Score += score;
-            }
-            else gameObject.GetComponent<PlayerData>().player2Score += score;
+            gameObject.GetComponent<GameState>().playerData[player.ActorNumber].score += score;
         }
 
         // Next Round Event
@@ -51,7 +47,7 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
                 {
                     gameObject.GetComponent<GameState>().PlayerSwap();
                 }
-                
+
                 gameObject.GetComponent<GameState>().roundCounter++;
                 gameObject.GetComponent<GameState>().Reset();
             }

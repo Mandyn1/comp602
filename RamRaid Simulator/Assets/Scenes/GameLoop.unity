@@ -73248,10 +73248,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1507545317}
   - component: {fileID: 1507545316}
-  - component: {fileID: 1507545315}
-  - component: {fileID: 1507545314}
-  - component: {fileID: 1507545313}
   - component: {fileID: 1507545312}
+  - component: {fileID: 1507545313}
+  - component: {fileID: 1507545314}
   - component: {fileID: 1507545318}
   - component: {fileID: 1507545319}
   m_Layer: 0
@@ -73312,22 +73311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b10c1dc854caed4ba3f63e1324692a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReceiveEvents
---- !u!114 &1507545315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507545311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e171e07529e28f4eb39f83cbb4ad52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  player1Score: 0
-  player2Score: 0
-  player1Bank: 0
-  player2Bank: 0
 --- !u!114 &1507545316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73348,6 +73331,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 0
   policeResponseTime: 0
+  localPlayerNumber: 0
 --- !u!4 &1507545317
 Transform:
   m_ObjectHideFlags: 0
@@ -73387,11 +73371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3989a17e6484894e92864879e442e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisconnectFromServer
-  waitingStage: {fileID: 0}
-  roomStage: {fileID: 0}
-  usernameStage: {fileID: 0}
-  loadingStage: {fileID: 0}
-  menuStage: {fileID: 0}
 --- !u!1 &1522604472
 GameObject:
   m_ObjectHideFlags: 0

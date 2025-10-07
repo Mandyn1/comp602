@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections.Generic;
 
 public class GameState : MonoBehaviour
 {
@@ -16,13 +17,15 @@ public class GameState : MonoBehaviour
     public int maxTimer;
     public float policeResponseTime;
 
-    public Player raidPlayer;
-    public Player policePlayer;
+    public int localPlayerNumber;
 
+    public Dictionary<int, PlayerData> playerData;
 
     void Start()
     {
-        if (raidPlayer == null) GetPlayers();
+        localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+        SetPlayers();
+        
         gameState = 0;
         ProgressGame();
     }
@@ -33,17 +36,19 @@ public class GameState : MonoBehaviour
         if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("GameLoop");
     }
 
-    public void GetPlayers()
+    public void SetPlayers()
     {
-        this.raidPlayer = gameObject.GetComponent<PlayerData>().SendPlayer(1);
-        this.policePlayer = gameObject.GetComponent<PlayerData>().SendPlayer(2);
+        playerData.Add(PhotonNetwork.CurrentRoom.Players[0].ActorNumber, new PlayerData());
+        playerData.Add(PhotonNetwork.CurrentRoom.Players[1].ActorNumber, new PlayerData());
     }
 
     public void PlayerSwap()
     {
-        Player temp = raidPlayer;
-        raidPlayer = policePlayer;
-        policePlayer = temp;
+        foreach (PlayerData player in playerData.Values)
+        {
+            if (player.position == "Raider") player.position = "Police";
+            else player.position = "Raider";
+        }
         hasPlayerSwapped = true;
     }
 
@@ -69,17 +74,17 @@ public class GameState : MonoBehaviour
         {
             case 1:
                 gameObject.GetComponent<ViewStorage>().HideAll();
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().raider_S1_LocationMap.SetActive(true);
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().raider_S1_LocationMap.SetActive(true);
                 else gameObject.GetComponent<ViewStorage>().police_S1_CarPlacer.SetActive(true);
                 break;
             case 2:
                 gameObject.GetComponent<ViewStorage>().HideAll();
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
                 else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             case 3:
                 gameObject.GetComponent<ViewStorage>().HideAll();
-                if (PhotonNetwork.LocalPlayer.ActorNumber == raidPlayer.ActorNumber) gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
                 else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             default:
