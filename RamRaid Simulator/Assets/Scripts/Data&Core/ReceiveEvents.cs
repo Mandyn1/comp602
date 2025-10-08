@@ -20,25 +20,54 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
     {
         byte eventCode = photonEvent.Code;
 
+        // Update Current Raid Location Event
         if (eventCode == SendEvents.UpdateCurrentRaidLocationEventCode)
         {
-            string currentRaidLocation = (string)photonEvent.CustomData;
-            if (this.gameObject.name == "PlayerManager") this.gameObject.GetComponent<PlayerData>().currentRaidLocation = currentRaidLocation;
-            else if (this.gameObject.name == "GameManager") this.gameObject.GetComponent<GameState>().stage2RaiderScene = currentRaidLocation;
+            int currentRaidLocation = (int)photonEvent.CustomData;
+            gameObject.GetComponent<GameState>().currentRaidLocation = currentRaidLocation;
         }
+
+        // Update Score Event
         else if (eventCode == SendEvents.UpdateScoreEventCode)
         {
-            if (this.gameObject.name == "PlayerManager")
-            {
-                object[] data = (object[])photonEvent.CustomData;
-                int score = (int)data[0];
-                Player player = (Player)data[1];
+            object[] data = (object[])photonEvent.CustomData;
+            int score = (int)data[0];
+            Player player = (Player)data[1];
 
-                if (this.gameObject.GetComponent<PlayerData>().player1.ActorNumber == player.ActorNumber)
+            gameObject.GetComponent<GameState>().playerData[player.ActorNumber].score += score;
+        }
+
+        // Next Round Event
+        else if (eventCode == SendEvents.NextRoundEventCode)
+        {
+            if ((bool)photonEvent.CustomData)
+            {
+                if (gameObject.GetComponent<GameState>().hasPlayerSwapped) gameObject.GetComponent<GameState>().EndGame();
+                else
                 {
-                    this.gameObject.GetComponent<PlayerData>().player1Score += score;
+                    gameObject.GetComponent<GameState>().PlayerSwap();
                 }
-                else this.gameObject.GetComponent<PlayerData>().player2Score += score;
+
+                gameObject.GetComponent<GameState>().roundCounter++;
+                gameObject.GetComponent<GameState>().Reset();
+            }
+        }
+
+        // Send starting (player) positions (police or raider). Runs once per player
+        else if (eventCode == SendEvents.SendStartingPositionsEventCode)
+        {
+            object[] data = (object[])photonEvent.CustomData;
+            gameObject.GetComponent<GameState>().playerData[(int)data[0]].position = (string)data[1];
+        }
+
+        // Player waiting event, starts next phase if a player is already waiting
+        else if (eventCode == SendEvents.PlayerNowWaitingEventCode)
+        {
+            if (!gameObject.GetComponent<GameState>().playerWaiting) gameObject.GetComponent<GameState>().playerWaiting = true;
+            else
+            {
+                gameObject.GetComponent<GameState>().playerWaiting = false;
+                gameObject.GetComponent<GameState>().ProgressGame();
             }
         }
     }

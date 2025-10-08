@@ -119,50 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &175168490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 175168492}
-  - component: {fileID: 175168491}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &175168491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175168490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14b1bebdd3adde41a0a632073dc748b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuitGame
---- !u!4 &175168492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175168490}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1787.2837, y: 773.21564, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413990625
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,8 +840,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1345490334}
   - component: {fileID: 1345490333}
+  - component: {fileID: 1345490335}
   m_Layer: 0
-  m_Name: ServerManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,11 +860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3989a17e6484894e92864879e442e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisconnectFromServer
-  waitingStage: {fileID: 0}
-  roomStage: {fileID: 0}
-  usernameStage: {fileID: 0}
-  loadingStage: {fileID: 0}
-  menuStage: {fileID: 0}
 --- !u!4 &1345490334
 Transform:
   m_ObjectHideFlags: 0
@@ -923,6 +875,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1345490335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345490332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b1bebdd3adde41a0a632073dc748b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuitGame
 --- !u!1 &1571557664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1077,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175168491}
+      - m_Target: {fileID: 1345490335}
         m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
         m_MethodName: quit
         m_Mode: 1
@@ -1453,6 +1417,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 413990628}
   - {fileID: 1345490334}
-  - {fileID: 175168492}
   - {fileID: 2061698169}
   - {fileID: 1571557668}
