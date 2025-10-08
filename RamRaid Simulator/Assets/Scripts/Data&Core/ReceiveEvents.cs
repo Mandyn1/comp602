@@ -52,5 +52,23 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
                 gameObject.GetComponent<GameState>().Reset();
             }
         }
+
+        // Send starting (player) positions (police or raider). Runs once per player
+        else if (eventCode == SendEvents.SendStartingPositionsEventCode)
+        {
+            object[] data = (object[])photonEvent.CustomData;
+            gameObject.GetComponent<GameState>().playerData[(int)data[0]].position = (string)data[1];
+        }
+
+        // Player waiting event, starts next phase if a player is already waiting
+        else if (eventCode == SendEvents.PlayerNowWaitingEventCode)
+        {
+            if (!gameObject.GetComponent<GameState>().playerWaiting) gameObject.GetComponent<GameState>().playerWaiting = true;
+            else
+            {
+                gameObject.GetComponent<GameState>().playerWaiting = false;
+                gameObject.GetComponent<GameState>().ProgressGame();
+            }
+        }
     }
 }

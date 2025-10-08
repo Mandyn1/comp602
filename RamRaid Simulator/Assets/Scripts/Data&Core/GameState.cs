@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
     public int roundCounter = 0;
     public int maxRounds = 3;
     public bool hasPlayerSwapped = false;
+    public bool playerWaiting = false;
 
     public int currentRaidLocation;
 
@@ -23,7 +24,7 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
-        if (localPlayerNumber == null)
+        if (playerData.Count == 0)
         {
             localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
             SetPlayers();
@@ -43,6 +44,15 @@ public class GameState : MonoBehaviour
     {
         playerData.Add(PhotonNetwork.CurrentRoom.Players[0].ActorNumber, new PlayerData());
         playerData.Add(PhotonNetwork.CurrentRoom.Players[1].ActorNumber, new PlayerData());
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            foreach (int playerNumber in playerData.Keys)
+            {
+                if (playerNumber == localPlayerNumber) gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, "Raider");
+                else gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, "Police");
+            }
+        }
     }
 
     public void PlayerSwap()

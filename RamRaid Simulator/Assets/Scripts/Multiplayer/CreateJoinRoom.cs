@@ -17,6 +17,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public GameObject player1NameText;
     public GameObject player2NameText;
     public TMP_InputField nicknameInput;
+    public GameObject startButton;
+    public GameObject playerWaitingText;
 
     public void SetUserName()
     {
@@ -80,6 +82,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
+            playerWaitingText.SetActive(false);
+            startButton.SetActive(true);
         }
     }
 
