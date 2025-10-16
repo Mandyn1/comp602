@@ -19,6 +19,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public TMP_InputField nicknameInput;
     public GameObject startButton;
     public GameObject playerWaitingText;
+    public GameObject swapRoleButton;
 
     public void SetUserName()
     {
@@ -84,6 +85,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
             player2NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[1].NickName);
             playerWaitingText.SetActive(false);
             startButton.SetActive(true);
+            swapRoleButton.SetActive(true);
         }
     }
 

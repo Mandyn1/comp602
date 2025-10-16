@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class GameState : MonoBehaviour
 {
@@ -47,10 +49,22 @@ public class GameState : MonoBehaviour
 
         if (PhotonNetwork.IsMasterClient)
         {
+            string hostRole = "Raider";
+            string otherRole = "Police";
+            GameObject startingRoles = GameObject.Find("StartingRoles");
+
+            if(startingRoles.GetComponent<StartingRoles>() != null)
+            {
+                hostRole = startingRoles.GetComponent<StartingRoles>().hostRole;
+                otherRole = startingRoles.GetComponent<StartingRoles>().otherRole;
+
+                GameObject.Destroy(startingRoles);
+            }
+
             foreach (int playerNumber in playerData.Keys)
             {
-                if (playerNumber == localPlayerNumber) gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, "Raider");
-                else gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, "Police");
+                if (playerNumber == localPlayerNumber) gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, hostRole);
+                else gameObject.GetComponent<SendEvents>().SendStartingPositionsEvent(playerNumber, otherRole);
             }
         }
     }
