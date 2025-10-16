@@ -20,6 +20,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public GameObject startButton;
     public GameObject playerWaitingText;
     public GameObject swapRoleButton;
+    public GameObject randomiseRoleButton;
 
     public void SetUserName()
     {
@@ -86,6 +87,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
             playerWaitingText.SetActive(false);
             startButton.SetActive(true);
             swapRoleButton.SetActive(true);
+            randomiseRoleButton.SetActive(true);
         }
     }
 
