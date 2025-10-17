@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class CreateJoinRoom : MonoBehaviourPunCallbacks
 {
-
+    // Bits in Main Menu scene
     public GameObject roomStage;
     public GameObject waitingStage;
     public GameObject player1NameText;
@@ -22,6 +22,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     public GameObject swapRoleButton;
     public GameObject randomiseRoleButton;
 
+    // Also resets currently disabled text fields in case user goes back to them
     public void SetUserName()
     {
         PhotonNetwork.NickName = nicknameInput.text;
@@ -43,15 +44,17 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
-    // Console printing for debugging
+    // Updates text fields and move to waiting stage
     public override void OnJoinedRoom()
     {
+        // Console printing for debugging
         print("Joined " + PhotonNetwork.CurrentRoom.Name);
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             print(p.NickName);
         }
 
+        // Updates text fields displaying player names
         player1NameText.GetComponent<TextMeshProUGUI>().SetText(PhotonNetwork.PlayerList[0].NickName);
 
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
@@ -77,6 +80,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
+    // Updates player name text fields and allows game to start
+    // Also allows positions to be swapped or randomised
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         base.OnPlayerEnteredRoom(newPlayer);
@@ -93,7 +98,7 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AutomaticallySyncScene = true; // Forces users to follow host to new scene
         PhotonNetwork.LoadLevel("GameLoop");
     }
 }

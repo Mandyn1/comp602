@@ -3,6 +3,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using Unity.VisualScripting;
+using System;
+using System.Collections.Generic;
 
 public class ReceiveEvents : MonoBehaviour, IOnEventCallback
 {
@@ -16,6 +18,8 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 
+    // Registers events in scene across users and completes required logic for each occurence
+    // Mostly used for syncing data between users
     public void OnEvent(EventData photonEvent)
     {
         byte eventCode = photonEvent.Code;
@@ -37,10 +41,10 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
             gameObject.GetComponent<GameState>().playerData[player.ActorNumber].score += score;
         }
 
-        // Next Round Event
+        // Next Round Event, checks if players need swapping or the game requires ending
         else if (eventCode == SendEvents.NextRoundEventCode)
         {
-            if ((bool)photonEvent.CustomData)
+            if ((bool)photonEvent.CustomData) // roundCounter > maxRounds
             {
                 if (gameObject.GetComponent<GameState>().hasPlayerSwapped) gameObject.GetComponent<GameState>().EndGame();
                 else
@@ -48,7 +52,7 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
                     gameObject.GetComponent<GameState>().PlayerSwap();
                 }
 
-                gameObject.GetComponent<GameState>().roundCounter++;
+                gameObject.GetComponent<GameState>().roundCounter = 0;
                 gameObject.GetComponent<GameState>().Reset();
             }
         }
@@ -68,6 +72,20 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
             {
                 gameObject.GetComponent<GameState>().playerWaiting = false;
                 gameObject.GetComponent<GameState>().ProgressGame();
+            }
+        }
+
+        // Recieves and deposits stat data for other player that is otherwise not collected over course of game play
+        else if (eventCode == SendEvents.SendStatDataEventCode)
+        {
+            Dictionary<String, object> data = (Dictionary<String, object>)photonEvent.CustomData;
+
+            foreach (int playerNumber in gameObject.GetComponent<GameState>().playerData.Keys)
+            {
+                if (playerNumber == PhotonNetwork.LocalPlayer.ActorNumber)
+                {
+                    gameObject.GetComponent<GameState>().playerData[playerNumber].depositData(data);
+                }
             }
         }
     }
