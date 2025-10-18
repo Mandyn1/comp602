@@ -93,6 +93,15 @@ public class GameState : MonoBehaviour
     public void EndGame()
     {
         gameObject.GetComponent<SendEvents>().SendStatDataEvent(playerData[localPlayerNumber].gatherData(maxRounds));
+
+        PlayerData p1 = null, p2 = null;
+
+        foreach(int p in playerData.Keys)
+        {
+            if (p == localPlayerNumber) p1 = playerData[p];
+            else p2 = playerData[p];
+        }
+        gameObject.GetComponent<EndStatViewStorage>().loadData(p1, p2);
         gameObject.GetComponent<StageViewStorage>().HideAll();
         gameObject.GetComponent<StageViewStorage>().endGame.SetActive(true);
         inEndGame = true;
