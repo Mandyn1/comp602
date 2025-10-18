@@ -1,7 +1,7 @@
 using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
-public class ViewStorage : MonoBehaviour
+public class StageViewStorage : MonoBehaviour
 {
     // All stage containers in gameloop scene
     public GameObject raider_S1_LocationMap;
@@ -17,7 +17,7 @@ public class ViewStorage : MonoBehaviour
     public GameObject raider_S2_Outdoor04;
     public GameObject police_S1_CarPlacer;
     public GameObject incomplete_GameStage;
-    public GameObject endGame_Stats;
+    public GameObject endGame;
 
     public GameObject[] raider_S2_IndoorArray;
     public GameObject[] raider_S2_OutdoorArray;
@@ -52,6 +52,6 @@ public class ViewStorage : MonoBehaviour
         if (raider_S2_Outdoor04.activeInHierarchy) raider_S2_Outdoor04.SetActive(false);
         if (police_S1_CarPlacer.activeInHierarchy) police_S1_CarPlacer.SetActive(false);
         if (incomplete_GameStage.activeInHierarchy) incomplete_GameStage.SetActive(false);
-        if (endGame_Stats.activeInHierarchy) endGame_Stats.SetActive(false);
+        if (endGame.activeInHierarchy) endGame.SetActive(false);
     }
 }

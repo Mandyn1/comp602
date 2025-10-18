@@ -93,8 +93,8 @@ public class GameState : MonoBehaviour
     public void EndGame()
     {
         gameObject.GetComponent<SendEvents>().SendStatDataEvent(playerData[localPlayerNumber].gatherData(maxRounds));
-        gameObject.GetComponent<ViewStorage>().HideAll();
-        gameObject.GetComponent<ViewStorage>().endGame_Stats.SetActive(true);
+        gameObject.GetComponent<StageViewStorage>().HideAll();
+        gameObject.GetComponent<StageViewStorage>().endGame.SetActive(true);
         inEndGame = true;
     }
 
@@ -116,19 +116,19 @@ public class GameState : MonoBehaviour
         switch (gameState)
         {
             case 1:
-                gameObject.GetComponent<ViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().raider_S1_LocationMap.SetActive(true);
-                else gameObject.GetComponent<ViewStorage>().police_S1_CarPlacer.SetActive(true);
+                gameObject.GetComponent<StageViewStorage>().HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().raider_S1_LocationMap.SetActive(true);
+                else gameObject.GetComponent<StageViewStorage>().police_S1_CarPlacer.SetActive(true);
                 break;
             case 2:
-                gameObject.GetComponent<ViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
-                else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
+                gameObject.GetComponent<StageViewStorage>().HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
+                else gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             case 3:
-                gameObject.GetComponent<ViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
-                else gameObject.GetComponent<ViewStorage>().incomplete_GameStage.SetActive(true);
+                gameObject.GetComponent<StageViewStorage>().HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
+                else gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
                 break;
             default:
                 EndGame();

@@ -20,7 +20,7 @@ public class PlayerData : MonoBehaviour
     public int carsStolen = 0;
     public double totalTimeInRaid = 0;
     public double aveTimeInRaid = 0;
-    public int locationsLooted = 0;
+    public int containersLooted = 0;
     public int policeUnitsDeployed = 0;
     public double totalTimeToRaid = 0;
     public double aveTimeToRaid = 0;
@@ -45,7 +45,7 @@ public class PlayerData : MonoBehaviour
             { "PoliceMoneySpent", policeMoneySpent },
             { "CarsStolen", carsStolen },
             { "AveTimeInRaid", aveTimeInRaid },
-            { "LocationsLooted", locationsLooted },
+            { "ContainersLooted", containersLooted },
             { "PoliceUnitsDeployed", policeUnitsDeployed },
             { "AveTimeToRaid", aveTimeToRaid },
             { "RaiderItemsBought", raiderItemsBought },
@@ -68,7 +68,7 @@ public class PlayerData : MonoBehaviour
         policeMoneySpent = (int)data["PoliceMoneySpent"];
         carsStolen = (int)data["CarsStolen"];
         aveTimeInRaid = (double)data["AveTimeInRaid"];
-        locationsLooted = (int)data["LocationsLooted"];
+        containersLooted = (int)data["ContainersLooted"];
         policeUnitsDeployed = (int)data["PoliceUnitsDeployed"];
         aveTimeToRaid = (double)data["AveTimeToRaid"];
         raiderItemsBought = (int)data["RaiderItemsBought"];
