@@ -9,7 +9,8 @@ public class ObjectFlash : MonoBehaviour
 
     public float repeatTime = 1f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Makes target object flash on screen (enable and disable)
+    // Cannot be inside target object lest it disable itself
     void Start()
     {
         InvokeRepeating("ChangeActiveState", repeatTime, repeatTime);

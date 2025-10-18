@@ -17,10 +17,9 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
         print("Disconnected from Server");
     }
 
+    // Moves to PlayerDisconnecetd scene if other player leaves for any reason
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        if (gameObject.name == "GameManager") Destroy(gameObject);
-        
         SceneManager.LoadScene("PlayerDisconnected");
     }
 }
