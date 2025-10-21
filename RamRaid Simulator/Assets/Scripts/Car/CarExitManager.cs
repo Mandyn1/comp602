@@ -9,20 +9,8 @@ public class CarExitManager : MonoBehaviour
     [SerializeField] private float xCarSpawn;
     [SerializeField] private float yCarSpawn;
 
-    void Awake()
+    void Start()
     {
-        //to keep state of entering / exiting after switching scenes
-
-        //first check if already exists
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject); // Destroy duplicate
-        }
         
         //when the scene will be loaded next they will need to be exiting, so need to:
         //- change car to be moving down
@@ -48,18 +36,6 @@ public class CarExitManager : MonoBehaviour
             }
             
         }
-    }
-
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
