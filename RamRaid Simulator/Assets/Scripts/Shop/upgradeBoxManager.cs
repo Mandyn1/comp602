@@ -23,8 +23,7 @@ public class upgradeBoxManager : MonoBehaviour
     [Header("Upgrade Manager Values")]
     public float totalCost = 0;
     public float perUpgradeCost;
-    private int currentUpgradeLevel; //temp, for testing
-
+    public int currentUpgradeLevel = 0;
     //upgrade counter
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
