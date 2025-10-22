@@ -82,9 +82,10 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
 
             foreach (int playerNumber in gameObject.GetComponent<GameState>().playerData.Keys)
             {
-                if (playerNumber == PhotonNetwork.LocalPlayer.ActorNumber)
+                if (playerNumber != PhotonNetwork.LocalPlayer.ActorNumber)
                 {
                     gameObject.GetComponent<GameState>().playerData[playerNumber].depositData(data);
+                    break;
                 }
             }
         }
