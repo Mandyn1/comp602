@@ -15780,18 +15780,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9fc3b7c79527e418116695c9492b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  thisMinigame: {fileID: 1849312873}
   stressBar: {fileID: 690957483}
   cylinder: {fileID: 586647128}
   pick: {fileID: 806766597}
   indicator: {fileID: 1063920532}
   unlkButton: {fileID: 1269793944}
-  failButton: {fileID: 1269793944}
+  failButton: {fileID: 1211310635}
   pickStatus: {fileID: 2045733988}
   successMess: {fileID: 1253956403}
   failMess: {fileID: 179923184}
   maxStress: 100
   stressRegen: 100
-  stressInc: 0.5
+  stressInc: 250
   picRotateSpeed: 400
   picReturnSpeed: 1000
   cylRotateSpeed: 60
@@ -58647,7 +58648,7 @@ GameObject:
   - component: {fileID: 1050701695}
   - component: {fileID: 1050701694}
   m_Layer: 5
-  m_Name: LockPicking
+  m_Name: LockPickingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69965,7 +69966,7 @@ GameObject:
   - component: {fileID: 1849312872}
   - component: {fileID: 1849312871}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LockPicking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

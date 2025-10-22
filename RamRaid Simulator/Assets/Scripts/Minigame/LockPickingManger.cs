@@ -1,4 +1,6 @@
 using TMPro;
+using Unity.AppUI.UI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Splines.ExtrusionShapes;
@@ -7,12 +9,13 @@ using UnityEngine.UI;
 public class LockPickingManger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public UnityEngine.Canvas thisMinigame;
     public Slider stressBar;
     public Image cylinder;
     public Image pick;
     public Image indicator;
-    public Button unlkButton;
-    public Button failButton;
+    public UnityEngine.UI.Button unlkButton;
+    public UnityEngine.UI.Button failButton;
     public TextMeshProUGUI pickStatus;
     public TextMeshProUGUI successMess;
     public TextMeshProUGUI failMess;
@@ -31,6 +34,7 @@ public class LockPickingManger : MonoBehaviour
     public float picReturnSpeed;
     private float picCurrentAngle;
     private Quaternion picOriginalRotation;
+    private bool isBreaking = false;
 
     //cylinder
     public float cylRotateSpeed;
@@ -48,15 +52,16 @@ public class LockPickingManger : MonoBehaviour
 
     void Start()
     {
-        //hide unlock buttons
+        //hide unlock buttons and add action listerner
         unlkButton.gameObject.SetActive(false);
         unlkButton.interactable = false;
+        unlkButton.onClick.AddListener(buttonClick);
         successMess.gameObject.SetActive(false);
 
         failButton.gameObject.SetActive(false);
         failButton.interactable = false;
+        failButton.onClick.AddListener(buttonClick);
         failMess.gameObject.SetActive(false);
-
         //set default status
         pickStatus.text = "Current Picks Remaining: " + numPicks.ToString();
         //indicator defualt
@@ -77,6 +82,8 @@ public class LockPickingManger : MonoBehaviour
         //randomly generate the correct angle
         correctAngle = (float)Random.Range(15, 75); //max angle is 80 so generate a fair amout in between
 
+        //burtto
+        //----------------------------------------------------------------------------------------------
 
     }
     // Update is called once per frame
@@ -97,7 +104,11 @@ public class LockPickingManger : MonoBehaviour
         //slowly release the stress if user is not applying space
         if (!Input.GetKey(KeyCode.Space))
         {
-            currentStress -= stressRegen * Time.deltaTime; //use delta time to slowly decrease stress
+            //regen the stress if above 0
+            if(currentStress > 0)
+            {
+                currentStress -= stressRegen * Time.deltaTime; //use delta time to slowly decrease stress
+            }
 
             //use quaternion and rotate towards the original saved position
             pick.rectTransform.rotation = Quaternion.RotateTowards(
@@ -107,16 +118,18 @@ public class LockPickingManger : MonoBehaviour
         //user is trying to open lock
         if (Input.GetKey(KeyCode.Space))
         {
-            if (currentStress >= maxStress)
+            //check if pick is at max stress
+            if (currentStress >= maxStress && !isBreaking)
             {
                 currentStress = maxStress;
                 //breaks
+                isBreaking = true;
                 PickBreak();
             }
-            else if(currentStress < maxStress)
+            else if (currentStress < maxStress)
             {
                 //increment stress and increase slider
-                currentStress += stressInc;
+                currentStress += stressInc * Time.deltaTime;
             }
 
             //limit the picks rotation to 50 degrees, first get the distance from the original rotation using its current rotation then check
@@ -126,6 +139,10 @@ public class LockPickingManger : MonoBehaviour
                 pick.rectTransform.Rotate(0f, 0f, -picCurrentAngle); //rotate pic
             }
 
+        }
+        else
+        {
+            isBreaking = false;
         }
         //update the bar
         stressBar.value = currentStress;
@@ -182,7 +199,6 @@ public class LockPickingManger : MonoBehaviour
             indicator.color = Color.red;
         }
         //----------------------------------------------------------------------------------------------
-
     }
 
     private void PickBreak()
@@ -193,8 +209,11 @@ public class LockPickingManger : MonoBehaviour
             return;
         }
 
+        //return to original position (like adding a new pick)
+        pick.rectTransform.rotation = picOriginalRotation;
         //decrement number of picks remaining and reset stress counter
         numPicks--;
+        currentStress = 0;
         //update text
         pickStatus.text = "Current Picks Remaining: " + numPicks.ToString();
 
@@ -204,6 +223,7 @@ public class LockPickingManger : MonoBehaviour
             cylinder.gameObject.SetActive(false);
             pick.gameObject.SetActive(false);
             indicator.gameObject.SetActive(false);
+            pickStatus.gameObject.SetActive(false);
 
             //button
             failButton.gameObject.SetActive(true);
@@ -219,6 +239,7 @@ public class LockPickingManger : MonoBehaviour
         cylinder.gameObject.SetActive(false);
         pick.gameObject.SetActive(false);
         indicator.gameObject.SetActive(false);
+        pickStatus.gameObject.SetActive(false);
 
         //button
         unlkButton.gameObject.SetActive(true);
@@ -227,6 +248,14 @@ public class LockPickingManger : MonoBehaviour
 
         //has picked bool to true
         hasPicked = true;
+    }
+
+    void buttonClick()
+    {
+        //SPACE FOR TRANSFERING DATA TO POINTS SYSTEM
+
+        //set entire object as inactive
+        thisMinigame.gameObject.SetActive(false);
     }
 }
 
