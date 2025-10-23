@@ -21,8 +21,8 @@ public class upgradeBoxManager : MonoBehaviour
 
     //upgrade manager
     [Header("Upgrade Manager Values")]
-    public float totalCost = 0;
-    public float perUpgradeCost;
+    public int totalCost = 0;
+    public int perUpgradeCost;
     public int currentUpgradeLevel = 0;
     //upgrade counter
 

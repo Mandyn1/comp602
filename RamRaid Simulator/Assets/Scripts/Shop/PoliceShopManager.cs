@@ -19,10 +19,11 @@ public class PoliceShopManager : MonoBehaviour
     //manager variablers
     [Header("manager variables")]
     public int totalUpgrades = 0;
-    public float totalCost = 0;
-    public float balance;
+    public int totalCost = 0;
+    private int balance;
     private int prevUpgradeCount = 0;
     private float prevCost = 0f;
+    private GameState state;
     void Start()
     {
         //init the buttons from the confirm box and set their action listeners
@@ -34,6 +35,23 @@ public class PoliceShopManager : MonoBehaviour
 
         //clean the error message
         errorMessage.text = "";
+
+        //get the game manager game state script to retrive the polices wallet/bank
+        GameObject gameManager = GameObject.Find("GameManager");
+
+        //check if game manager exists, obviously it will but for saftey
+        if(gameManager != null)
+        {
+            //get the script to grab the values from the dictronary
+            state = gameManager.GetComponent<GameState>();
+
+            //do saftey check again, if exists assign values
+            if(state != null)
+            {
+                //get the bank
+                balance = state.playerData[state.localPlayerNumber].policeBank;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -42,7 +60,7 @@ public class PoliceShopManager : MonoBehaviour
         //constantly update the text description for the stats
         TextMeshProUGUI totalStats = confirmBox.transform.Find("Stats").GetComponent<TextMeshProUGUI>();
 
-        float currentCost = 0f;
+        int currentCost = 0;
         int currentUpgrade = 0;
         //loop through each upgrade box to get stats
         foreach (GameObject box in upgradeBoxes)
@@ -93,6 +111,13 @@ public class PoliceShopManager : MonoBehaviour
         {
             //upgrade
             Debug.Log("Items upgraded"); //for testing sake, TEMP
+
+            //deduct charge on polices wallet
+            if(state != null)
+            {
+                balance -= totalCost;
+                state.playerData[state.localPlayerNumber].policeBank = balance;
+            }
         }
         else
         {
