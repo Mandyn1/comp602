@@ -11019,7 +11019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &431265136
 Transform:
   m_ObjectHideFlags: 0
@@ -47438,11 +47438,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1555635242}
   - {fileID: 1401115328}
   - {fileID: 1767170568}
   - {fileID: 322205673}
   - {fileID: 477157829}
-  - {fileID: 1555635242}
   - {fileID: 16787989}
   - {fileID: 144108120}
   - {fileID: 229898708}
@@ -64188,7 +64188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &954193050
 Transform:
   m_ObjectHideFlags: 0
@@ -72280,6 +72280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555635242}
   - component: {fileID: 1555635243}
+  - component: {fileID: 1555635244}
   m_Layer: 0
   m_Name: LocationRoot
   m_TagString: Untagged
@@ -72319,6 +72320,19 @@ MonoBehaviour:
   rewardMultiplier: 1
   difficultyTier: 1
   makeActiveOnAwake: 1
+--- !u!114 &1555635244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555635241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ee42b995cdf274d903ac0cd3e7569d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  policeDistanceFromRaid: 0
 --- !u!1 &1559111773
 GameObject:
   m_ObjectHideFlags: 0
