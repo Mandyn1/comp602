@@ -722,7 +722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
-  waitingSceneName: WaitingScene
 --- !u!114 &18164116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2533,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149344538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0929808bfd842d6ac32a4557834c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
   openMinigame: {fileID: 0}
@@ -2547,14 +2546,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 149344538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220aedd3d93413044a543f23663368bd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2f5649b8248411d9ce89cd4fdcf984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 615580628}
   carMenu: {fileID: 1171499674}
-  carInfo: 'Car: Toyota Aqua 2022
+  carInfo: 'Toyota Aqua
 
-    Engine: 1500cc'
+    2012
+
+    1.8L'
 --- !u!212 &149344543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6905,19 +6906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e31f74d88852842885ae1f0bde7a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DistanceChecker
-  location1: {fileID: 599016496}
-  location2: {fileID: 1124381164}
-  location3: {fileID: 90293230}
-  location4: {fileID: 1999519169}
-  location1Closest: {fileID: 0}
-  location2Closest: {fileID: 0}
-  location3Closest: {fileID: 0}
-  location4Closest: {fileID: 0}
-  location1Time: 9999
-  location2Time: 9999
-  location3Time: 9999
-  location4Time: 9999
-  timeModifier: 2.5
 --- !u!114 &295847348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6934,7 +6922,6 @@ MonoBehaviour:
   policePrefab: {fileID: 4949034141314048803, guid: 7363471dbbbb840be81ad668f459266d, type: 3}
   maxUnits: 3
   placedUnits: []
-  stopped: 0
 --- !u!4 &295847349
 Transform:
   m_ObjectHideFlags: 0
@@ -27817,9 +27804,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233372497}
-        m_TargetAssemblyTypeName: CarTheft, Assembly-CSharp
-        m_MethodName: OnStealPressed
+      - m_Target: {fileID: 1171499674}
+        m_TargetAssemblyTypeName: CarMenu, Assembly-CSharp
+        m_MethodName: StealCar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40385,9 +40372,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682311661}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0929808bfd842d6ac32a4557834c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
   openMinigame: {fileID: 0}
@@ -40400,14 +40387,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 682311661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220aedd3d93413044a543f23663368bd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2f5649b8248411d9ce89cd4fdcf984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 615580628}
   carMenu: {fileID: 1171499674}
-  carInfo: 'Car: Honda S2K 1999
-
-    Engine: 1990cc'
+  carInfo: "Honda S2K \n2009\n2.2L"
 --- !u!212 &682311666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41113,9 +41098,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731016443}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0929808bfd842d6ac32a4557834c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
   openMinigame: {fileID: 0}
@@ -41128,14 +41113,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 731016443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220aedd3d93413044a543f23663368bd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2f5649b8248411d9ce89cd4fdcf984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 615580628}
   carMenu: {fileID: 1171499674}
-  carInfo: 'Car: Porsche 911 2009
-
-    Engine: 3800cc'
+  carInfo: "Porsche 911 Carrera S \n2024\n3.0L"
 --- !u!212 &731016448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58438,8 +58421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749f720ac2e19b99bb416d5ac3027a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  xCarSpawn: -9.38
-  yCarSpawn: -14.21
 --- !u!114 &1035255503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60323,7 +60304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1171499672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b1bf4f60040bb41b8fa4d3fddcb438, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dcada944044f44df9091cb75ab1c353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMenu
   carMenuUI: {fileID: 615580628}
@@ -61118,7 +61099,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1233372496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0929808bfd842d6ac32a4557834c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
   openMinigame: {fileID: 0}
@@ -61883,9 +61864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525feefb8f1df2b43b6ff2ccac779be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleManager
-  car: {fileID: 3481549253420640239, guid: 8034375fe7a7d324cb465f413debd65a, type: 3}
-  motorbike: {fileID: 4607087728768977219, guid: 2ca04c1f54d4b354aa0423c4f6d4f22f, type: 3}
-  spawnPoint: {fileID: 969140723}
 --- !u!1 &1274912629
 GameObject:
   m_ObjectHideFlags: 0
@@ -62045,10 +62023,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1280763372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0929808bfd842d6ac32a4557834c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  openMinigame: {fileID: 1280763378}
+  openMinigame: {fileID: 0}
 --- !u!114 &1280763376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62058,14 +62036,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1280763372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220aedd3d93413044a543f23663368bd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2f5649b8248411d9ce89cd4fdcf984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   carMenuUI: {fileID: 615580628}
   carMenu: {fileID: 1171499674}
-  carInfo: 'Car: Mazda Miata 1997
-
-    Engine: 1800cc'
+  carInfo: "Mazda Miata \n1997\n1.8L"
 --- !u!212 &1280763377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62227,10 +62203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3952df062cd40887195fb1bb7829ec2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 20
-  xSpawn: -9.38
-  ySpawn: 10
-  moveInput: {x: 0, y: -1}
 --- !u!61 &1307034857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70964,10 +70936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3952df062cd40887195fb1bb7829ec2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 20
-  xSpawn: -9.38
-  ySpawn: -14.21
-  moveInput: {x: 0, y: 1}
 --- !u!61 &1879710244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84462,7 +84430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
-  waitingSceneName: WaitingScene
 --- !u!114 &2136457127
 MonoBehaviour:
   m_ObjectHideFlags: 0
