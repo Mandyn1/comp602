@@ -5,7 +5,7 @@ public class CarTheft : MonoBehaviour
     private bool playerInCarZone = false;
     private GameObject theftPlayer;
 
-    [SerializeField] private GameObject miniGamePanel; 
+    [SerializeField] private OpenMinigame openMinigame; // new mini game
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,11 +29,14 @@ public class CarTheft : MonoBehaviour
 
     public void OnStealPressed()
     {
-
-        if (playerInCarZone && miniGamePanel != null)
+        if (playerInCarZone && openMinigame != null)
         {
-            miniGamePanel.SetActive(true);
+            Debug.Log("Opening minigame");
+            openMinigame.SendMessage("OnTriggerEnter2D", theftPlayer.GetComponent<Collider2D>());
+        }
+        else
+        {
+            Debug.LogWarning("Can't open mini game, something's wrong");
         }
     }
 }
-

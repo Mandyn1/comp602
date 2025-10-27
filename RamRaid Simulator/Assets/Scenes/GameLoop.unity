@@ -2468,7 +2468,7 @@ GameObject:
   - component: {fileID: 149344540}
   m_Layer: 0
   m_Name: Car1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  miniGamePanel: {fileID: 861463576}
+  openMinigame: {fileID: 0}
 --- !u!114 &149344542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40321,7 +40321,7 @@ GameObject:
   - component: {fileID: 682311663}
   m_Layer: 0
   m_Name: Car2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40390,7 +40390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  miniGamePanel: {fileID: 0}
+  openMinigame: {fileID: 0}
 --- !u!114 &682311665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41049,7 +41049,7 @@ GameObject:
   - component: {fileID: 731016445}
   m_Layer: 0
   m_Name: Car3
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41118,7 +41118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  miniGamePanel: {fileID: 0}
+  openMinigame: {fileID: 0}
 --- !u!114 &731016447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58653,7 +58653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1050701693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61121,7 +61121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  miniGamePanel: {fileID: 861463576}
+  openMinigame: {fileID: 0}
 --- !u!58 &1233372498
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -61976,9 +61976,10 @@ GameObject:
   - component: {fileID: 1280763376}
   - component: {fileID: 1280763375}
   - component: {fileID: 1280763374}
+  - component: {fileID: 1280763378}
   m_Layer: 0
   m_Name: Car4
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62042,12 +62043,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280763372}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ae2ef2c73d3d9f458b75e917db8f864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheft
-  miniGamePanel: {fileID: 0}
+  openMinigame: {fileID: 1280763378}
 --- !u!114 &1280763376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62123,6 +62124,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1280763378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280763372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdafebc2d5ac06344afbe35902689a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenMinigame
+  game: {fileID: 1849312869}
 --- !u!1 &1294264128
 GameObject:
   m_ObjectHideFlags: 0
@@ -62138,7 +62152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1294264129
 Transform:
   m_ObjectHideFlags: 0
@@ -62795,7 +62809,7 @@ RectTransform:
   m_Father: {fileID: 1754233592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -63299,7 +63313,7 @@ RectTransform:
   m_Father: {fileID: 129410793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -69466,7 +69480,7 @@ Transform:
   m_GameObject: {fileID: 1829528750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1466.0533, y: -643.9867, z: -10}
+  m_LocalPosition: {x: -1456.9534, y: -641.2767, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69971,7 +69985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1849312870
 RectTransform:
   m_ObjectHideFlags: 0
