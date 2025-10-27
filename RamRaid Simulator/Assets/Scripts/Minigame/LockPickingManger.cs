@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class LockPickingManger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("UI Components")]
     public UnityEngine.Canvas thisMinigame;
     public Slider stressBar;
     public Image cylinder;
@@ -24,12 +25,14 @@ public class LockPickingManger : MonoBehaviour
     //(set as public for getting correct feel)
 
     //slider
+    [Header("Stress Values")]
     public float maxStress;
     public float stressRegen;
     public float stressInc;
     private float currentStress;
 
     //pick
+    [Header("Pick Values")]
     public float picRotateSpeed;
     public float picReturnSpeed;
     private float picCurrentAngle;
@@ -37,12 +40,14 @@ public class LockPickingManger : MonoBehaviour
     private bool isBreaking = false;
 
     //cylinder
+    [Header("Cylinder Values")]
     public float cylRotateSpeed;
     public float cylReturnSpeed;
     private float cylCurrentAngle;
     private Quaternion cylOriginalRotation;
 
     //picking
+    [Header("Picking Mechanic Values")]
     private float correctAngle;
     public float play;
     public float closePlay;
