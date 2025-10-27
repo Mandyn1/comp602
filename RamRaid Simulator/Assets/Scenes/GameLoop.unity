@@ -47438,12 +47438,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1555635242}
   - {fileID: 1401115328}
   - {fileID: 1767170568}
   - {fileID: 322205673}
   - {fileID: 477157829}
   - {fileID: 16787989}
+  - {fileID: 1555635242}
   - {fileID: 144108120}
   - {fileID: 229898708}
   m_Father: {fileID: 0}
@@ -64802,6 +64802,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   transitionTo: {fileID: 431265135}
   currentScene: {fileID: 431265135}
+  Player: {fileID: 0}
+  wayPointActive: 1
+  indoorLocation: 0
+  outdoorLocation: 0
 --- !u!61 &989234340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65433,6 +65437,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
   transitionTo: {fileID: 649532882}
   currentScene: {fileID: 954193049}
+  Player: {fileID: 0}
+  wayPointActive: 1
+  indoorLocation: 0
+  outdoorLocation: 0
 --- !u!61 &1035255504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -72333,6 +72341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   policeDistanceFromRaid: 0
+  raidLocationNum: 0
+  policePlacer: {fileID: 0}
+  bounds: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1559111773
 GameObject:
   m_ObjectHideFlags: 0
@@ -78566,6 +78578,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   transitionTo: {fileID: 431265135}
   currentScene: {fileID: 649532882}
+  Player: {fileID: 0}
+  wayPointActive: 1
+  indoorLocation: 0
+  outdoorLocation: 0
 --- !u!61 &2009800804
 BoxCollider2D:
   m_ObjectHideFlags: 0

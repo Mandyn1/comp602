@@ -88,5 +88,12 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
                 }
             }
         }
+
+        // Recieves the beginning time for police response time from police player for the raid player
+        else if (eventCode == SendEvents.SendPoliceTimeEventCode)
+        {
+            float time = (float)photonEvent.CustomData;
+            gameObject.GetComponent<GameState>().policeResponseTime = time;
+        }
     }
 }

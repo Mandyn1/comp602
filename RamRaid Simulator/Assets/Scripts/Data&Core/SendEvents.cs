@@ -15,6 +15,7 @@ public class SendEvents : MonoBehaviourPunCallbacks
     public const byte SendStartingPositionsEventCode = 4;
     public const byte PlayerNowWaitingEventCode = 5;
     public const byte SendStatDataEventCode = 6;
+    public const byte SendPoliceTimeEventCode = 7;
 
     // Syncing current raid location
     public void UpdateCurrentRaidLocationEvent(string currentRaidLocation)
@@ -60,5 +61,12 @@ public class SendEvents : MonoBehaviourPunCallbacks
     {
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
         PhotonNetwork.RaiseEvent(SendStatDataEventCode, data, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    // Sends the beginning time for police response time from police player for the raid player
+    public void SendPoliceTimeEvent(float time)
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+        PhotonNetwork.RaiseEvent(SendPoliceTimeEventCode, time, raiseEventOptions, SendOptions.SendReliable);
     }
 }
