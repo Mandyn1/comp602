@@ -60377,7 +60377,8 @@ MonoBehaviour:
   carInfoPanel: {fileID: 1934614952}
   carInfoText: {fileID: 1894350253}
   lockPickingPanel: {fileID: 1050701692}
-  waitingScene: {fileID: 0}
+  waitingScene: {fileID: 1676219103}
+  carTheftScene: {fileID: 1294264128}
 --- !u!1 &1191710317
 GameObject:
   m_ObjectHideFlags: 0

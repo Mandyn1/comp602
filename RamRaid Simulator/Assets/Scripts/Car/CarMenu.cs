@@ -10,7 +10,7 @@ public class CarMenu : MonoBehaviour
     [SerializeField] private TMP_Text carInfoText;
     [SerializeField] private GameObject lockPickingPanel;//trigger minigame
     [SerializeField] private GameObject waitingScene;//mingame result switch to waiting scene
-
+    [SerializeField] private GameObject carTheftScene;
     private string currentCarInfo;
 
     public void SetCar(string info)
@@ -46,6 +46,10 @@ public class CarMenu : MonoBehaviour
 
         // Enable the waiting scene
         waitingScene.SetActive(true);
+
+        // Disable the car theft scene
+        if (carTheftScene != null)
+            carTheftScene.SetActive(false);
     }
 
     public void OnLockpickLose()
@@ -58,6 +62,11 @@ public class CarMenu : MonoBehaviour
         PlayerPrefs.Save();
 
         waitingScene.SetActive(true);
+
+
+        // Disable the car theft scene
+        if (carTheftScene != null)
+            carTheftScene.SetActive(false);
     }
     public void Inspect() 
     {
