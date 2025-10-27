@@ -8,6 +8,8 @@ public class CarMenu : MonoBehaviour
     [SerializeField] private GameObject carMenuUI;
     [SerializeField] private GameObject carInfoPanel;
     [SerializeField] private TMP_Text carInfoText;
+    [SerializeField] private GameObject lockPickingPanel;//trigger minigame
+    [SerializeField] private GameObject waitingScene;//mingame result switch to waiting scene
 
     private string currentCarInfo;
 
@@ -18,13 +20,46 @@ public class CarMenu : MonoBehaviour
 
     public void StealCar()
     {
+        Debug.Log("Opening minigame");
+
+        // hide car menu
         carMenuUI.SetActive(false);
 
-        //Charles said he will handle the scene change
-        //SceneManager.LoadScene("MiniGame_FollowMap");
-
+        // show the new lock-picking minigame
+        if (lockPickingPanel != null)
+            lockPickingPanel.SetActive(true);
+        else
+            Debug.LogWarning("minigame fail!");
     }
-    public void Inspect() //not sure if needed
+
+    //steal car result
+    public void OnLockpickWin()
+    {
+        Debug.Log("WIN - Assigning car.");
+
+        // Hide minigame UI
+        lockPickingPanel.SetActive(false);
+
+        // Set PlayerPrefs so VehicleManager knows what to spawn
+        PlayerPrefs.SetString("Vehicle", "Car");
+        PlayerPrefs.Save();
+
+        // Enable the waiting scene
+        waitingScene.SetActive(true);
+    }
+
+    public void OnLockpickLose()
+    {
+        Debug.Log("FAIL - Assigning motorbike.");
+
+        lockPickingPanel.SetActive(false);
+
+        PlayerPrefs.SetString("Vehicle", "Motorbike");
+        PlayerPrefs.Save();
+
+        waitingScene.SetActive(true);
+    }
+    public void Inspect() 
     {
         if (!string.IsNullOrEmpty(currentCarInfo))
         {
@@ -46,3 +81,4 @@ public class CarMenu : MonoBehaviour
 
     }
 }
+

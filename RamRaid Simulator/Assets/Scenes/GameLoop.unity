@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
+  waitingSceneName: WaitingScene
 --- !u!114 &18164116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6906,6 +6907,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e31f74d88852842885ae1f0bde7a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DistanceChecker
+  location1: {fileID: 0}
+  location2: {fileID: 0}
+  location3: {fileID: 0}
+  location4: {fileID: 0}
+  location1Closest: {fileID: 0}
+  location2Closest: {fileID: 0}
+  location3Closest: {fileID: 0}
+  location4Closest: {fileID: 0}
+  location1Time: 9999
+  location2Time: 9999
+  location3Time: 9999
+  location4Time: 9999
+  timeModifier: 2.5
 --- !u!114 &295847348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9724,7 +9738,7 @@ Transform:
   m_GameObject: {fileID: 480869045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44204,6 +44218,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828122051}
   m_CullTransparentMesh: 1
+--- !u!1 &845816389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845816391}
+  - component: {fileID: 845816390}
+  m_Layer: 0
+  m_Name: Target Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &845816390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845816389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineTargetGroup
+  PositionMode: 0
+  RotationMode: 1
+  UpdateMethod: 2
+  Targets:
+  - Object: {fileID: 1545020180}
+    Weight: 1
+    Radius: 1
+  m_LegacyTargets: []
+--- !u!4 &845816391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845816389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.099975586, y: -5.289978, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848815388
 GameObject:
   m_ObjectHideFlags: 0
@@ -60310,6 +60376,8 @@ MonoBehaviour:
   carMenuUI: {fileID: 615580628}
   carInfoPanel: {fileID: 1934614952}
   carInfoText: {fileID: 1894350253}
+  lockPickingPanel: {fileID: 1050701692}
+  waitingScene: {fileID: 0}
 --- !u!1 &1191710317
 GameObject:
   m_ObjectHideFlags: 0
@@ -61864,6 +61932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525feefb8f1df2b43b6ff2ccac779be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleManager
+  car: {fileID: 0}
+  motorbike: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &1274912629
 GameObject:
   m_ObjectHideFlags: 0
@@ -69577,7 +69648,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 8.22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -69957,7 +70028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1849312870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -73197,11 +73268,11 @@ MonoBehaviour:
   m_LegacyPriority: 0
   Target:
     TrackingTarget: {fileID: 1545020180}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
+    LookAtTarget: {fileID: 1545020180}
+    CustomLookAtTarget: 1
   Lens:
     FieldOfView: 60
-    OrthographicSize: 8
+    OrthographicSize: 8.22
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -84430,6 +84501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
+  waitingSceneName: WaitingScene
 --- !u!114 &2136457127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84861,3 +84933,4 @@ SceneRoots:
   - {fileID: 1191710321}
   - {fileID: 1507545317}
   - {fileID: 74971586}
+  - {fileID: 845816391}
