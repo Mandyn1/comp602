@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PolicePlacementManager : MonoBehaviour
 {
-    // this is the camera, needs to be dragged in the inspector
+    // camera (if you use it elsewhere)
     public Camera cam;
 
-    // this is the police prefab, drag the prefab here
+    // police prefab (kept for compatibility with your other code)
     public GameObject policePrefab;
 
     // number of police units allowed
@@ -17,57 +18,48 @@ public class PolicePlacementManager : MonoBehaviour
 
     public bool stopped = false;
 
-    void Update()
+    /// <summary>
+    /// Call this from your placement click code BEFORE placing/removing.
+    /// Example:
+    ///   if (manager.ShouldIgnoreUIClick()) return;
+    /// </summary>
+    public bool ShouldIgnoreUIClick()
     {
-        if (!stopped)
-        {
-            // if left mouse button is clicked
-            if (Input.GetMouseButtonDown(0))
-            {
-                // check if we can still place more police units
-                if (placedUnits.Count < maxUnits)
-                {
-                    // shoot a ray from the mouse into the world
-                    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-                    // check if the ray hits something
-                    if (Physics.Raycast(ray, out RaycastHit hit))
-                    {
-                        // spawn police a little above the hit point so it doesn’t clip
-                        Vector3 spawnPos = hit.point + Vector3.up * 0.5f;
-
-                        // make the police unit appear
-                        GameObject unit = Instantiate(policePrefab, spawnPos, Quaternion.identity);
-                        unit.name = "PoliceCar" + (placedUnits.Count + 1).ToString();
-
-                        // add it to the list
-                        placedUnits.Add(unit);
-                    }
-                }
-            }
-
-            // if right mouse button is clicked
-            if (Input.GetMouseButtonDown(1))
-            {
-                // check if there are any units to remove
-                if (placedUnits.Count > 0)
-                {
-                    // get the last one
-                    GameObject last = placedUnits[placedUnits.Count - 1];
-
-                    // remove it from the list
-                    placedUnits.RemoveAt(placedUnits.Count - 1);
-
-                    // delete it from the game
-                    Destroy(last);
-                }
-            }
-        }
-        
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
     }
 
-    public void Stop()
+    public void Stop() { stopped = true; }
+
+    public bool CanPlaceMore()
     {
-        stopped = true;
+        return !stopped && placedUnits.Count < maxUnits;
+    }
+
+    public void RegisterUnit(GameObject unit)
+    {
+        if (unit != null && !placedUnits.Contains(unit))
+            placedUnits.Add(unit);
+    }
+
+    public void RemoveUnit(GameObject unit)
+    {
+        if (unit == null) return;
+        int i = placedUnits.IndexOf(unit);
+        if (i >= 0) placedUnits.RemoveAt(i);
+        Destroy(unit);
+    }
+
+    public void RemoveNearest(Vector2 worldPos, float maxRadius = 1.2f)
+    {
+        if (placedUnits.Count == 0) return;
+        GameObject best = null;
+        float bestDist = float.MaxValue;
+        foreach (var u in placedUnits)
+        {
+            if (u == null) continue;
+            float d = Vector2.Distance(worldPos, u.transform.position);
+            if (d < bestDist) { bestDist = d; best = u; }
+        }
+        if (best != null && bestDist <= maxRadius) RemoveUnit(best);
     }
 }
