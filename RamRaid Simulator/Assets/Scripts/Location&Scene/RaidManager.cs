@@ -15,8 +15,6 @@ public class RaidManager : MonoBehaviour
     public bool useTestVals;
     public double testDistance;
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
