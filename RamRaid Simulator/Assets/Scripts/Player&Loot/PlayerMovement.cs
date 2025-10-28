@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
         //update players position
         if (!freeze)
         {
-            rb.linearVelocity = moveInput * moveSpeed;
+            var gm = GameObject.Find("GameManager").GetComponent<GameState>();
+            rb.linearVelocity = moveInput * (moveSpeed + gm.playerData[gm.localPlayerNumber].fasterRaiderMovement);
         }
     }
 

@@ -29,9 +29,10 @@ public class PolicePlacementManager : MonoBehaviour
     void Update()
     {
         if (stopped) return;
+        var gm = GameObject.Find("GameManager").GetComponent<GameState>();
 
         // left click = place
-        if (Input.GetMouseButtonDown(0) && placedUnits.Count < maxUnits)
+        if (Input.GetMouseButtonDown(0) && placedUnits.Count < maxUnits + gm.playerData[gm.localPlayerNumber].addPoliceUnit)
         {
             if (cam == null || policePrefab == null) { Debug.LogWarning("Placer missing camera or prefab"); return; }
 

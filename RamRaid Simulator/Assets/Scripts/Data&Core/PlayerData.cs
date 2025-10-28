@@ -31,6 +31,15 @@ public class PlayerData : MonoBehaviour
     public int escapes = 0;
     public int captures = 0;
 
+    // Counters for how many of each item player has
+    public int addPoliceUnit = 0; // Affects PolicePlayerManager script
+    public int fasterPoliceUnit = 0;
+    public int betterModifierPolice = 0;
+
+    public int fasterRaiderMovement = 0; // Affects PlayerMovement script
+    public int skipLockChance = 0;
+    public int betterModifierRaider= 0;
+
     // Create and return hashmap of stats data not shared between players
     public Dictionary<String, object> gatherData(int numOfRounds)
     {
