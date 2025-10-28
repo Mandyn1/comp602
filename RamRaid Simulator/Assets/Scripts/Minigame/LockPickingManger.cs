@@ -21,6 +21,8 @@ public class LockPickingManger : MonoBehaviour
     public TextMeshProUGUI successMess;
     public TextMeshProUGUI failMess;
 
+    [SerializeField] private CarMenu carMenu; //link to car menu
+
     //PICKING MENCHANICS VALUIES 
     //(set as public for getting correct feel)
 
@@ -259,6 +261,16 @@ public class LockPickingManger : MonoBehaviour
         hasFailed = true;
         //set entire object as inactive
         thisMinigame.gameObject.SetActive(false);
+
+        //tell car menu user has failed to pick lock
+        if (carMenu != null)
+        {
+            carMenu.OnLockpickLose();
+        }
+        else
+        {
+            Debug.LogWarning("FAIL");
+        }
     }
 
     void buttonClickSuccessfull()
@@ -268,6 +280,16 @@ public class LockPickingManger : MonoBehaviour
 
         //set entire object as inactive
         thisMinigame.gameObject.SetActive(false);
+
+        //tell car menu user has picked lock
+        if (carMenu != null)
+        {
+            carMenu.OnLockpickWin();
+        }
+        else
+        {
+            Debug.LogWarning("FAIL");
+        }
     }
 }
 
