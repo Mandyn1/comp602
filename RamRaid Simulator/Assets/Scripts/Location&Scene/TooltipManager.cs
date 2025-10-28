@@ -23,7 +23,7 @@ public class TooltipManager : MonoBehaviour
         HideImmediate();
     }
 
-    public void Show(LocationModifier data, RectTransform anchor)
+    public void Show(LocationSelectController data, RectTransform anchor)
     {
         if (!data || !anchor) return;
         titleText.text = data.displayName;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LocationHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     public Image image;                 // the icon Image
-    public LocationModifier data;       // reference to its LocationModifier
+    public LocationSelectController data;       // reference to its LocationModifier
     public float hoverScale = 1.1f;
     public float tweenSpeed = 10f;
     [Range(0,1)] public float normalAlpha = 0.7f;
@@ -20,7 +20,7 @@ public class LocationHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         rect = GetComponent<RectTransform>();
         image = GetComponent<Image>();
-        data = GetComponent<LocationModifier>();
+        data = GetComponent<LocationSelectController>();
     }
 
     void Awake()
