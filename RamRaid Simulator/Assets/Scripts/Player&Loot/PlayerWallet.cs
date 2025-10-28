@@ -6,7 +6,7 @@ public class PlayerWallet : MonoBehaviour
     [Min(0)][SerializeField] private int startingBalance = 0;
 
     [Header("Runtime (read-only)")]
-    [SerializeField] private int balance = 0; // visible in Inspector during Play Mode
+    public int balance = 0; // visible in Inspector during Play Mode
     public int Balance => balance;
 
     public event Action<int> OnBalanceChanged;
