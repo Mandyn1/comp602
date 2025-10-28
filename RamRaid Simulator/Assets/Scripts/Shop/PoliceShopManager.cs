@@ -88,6 +88,28 @@ public class PoliceShopManager : MonoBehaviour
             "Your Balance: " + balance;
     }
 
+void initboxes()
+    {
+        //this is so cursed but entire script relies on the list of boxes so sticking with it
+        foreach (GameObject box in upgradeBoxes){
+            upgradeBoxManager boxScript = box.GetComponent<upgradeBoxManager>();
+
+            //init the correct values to the boxes
+            if (boxScript.boxID == 1) //add polioce unit
+            {
+                boxScript.currentUpgradeLevel = state.playerData[state.localPlayerNumber].addPoliceUnit;
+            }
+            else if (boxScript.boxID == 2) //faster uniut
+            {
+                boxScript.currentUpgradeLevel = state.playerData[state.localPlayerNumber].fasterPoliceUnit;
+            }
+            else if(boxScript.boxID == 3) //better modidier
+            {
+                boxScript.currentUpgradeLevel = state.playerData[state.localPlayerNumber].betterModifierPolice;
+            }
+
+        }
+    }
     void resetAllUpgrades()
     {
         //loop through all upgrade boxes and reset the total cost and upgrade counter
@@ -113,10 +135,30 @@ public class PoliceShopManager : MonoBehaviour
             Debug.Log("Items upgraded"); //for testing sake, TEMP
 
             //deduct charge on polices wallet
-            if(state != null)
+            if (state != null)
             {
                 balance -= totalCost;
                 state.playerData[state.localPlayerNumber].policeBank = balance;
+            }
+            
+            //now update the variablers in the player manager
+            foreach (GameObject box in upgradeBoxes){
+                upgradeBoxManager boxScript = box.GetComponent<upgradeBoxManager>();
+
+                //assign the correct values
+                if (boxScript.boxID == 1) //add polioce unit
+                {
+                    state.playerData[state.localPlayerNumber].addPoliceUnit = boxScript.currentUpgradeLevel;
+                }
+                else if (boxScript.boxID == 2) //faster uniut
+                {
+                    state.playerData[state.localPlayerNumber].fasterPoliceUnit = boxScript.currentUpgradeLevel;
+                }
+                else if(boxScript.boxID == 3) //better modidier
+                {
+                    state.playerData[state.localPlayerNumber].betterModifierPolice = boxScript.currentUpgradeLevel;
+                }
+
             }
         }
         else

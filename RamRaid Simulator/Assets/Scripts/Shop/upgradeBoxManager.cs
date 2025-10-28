@@ -24,6 +24,7 @@ public class upgradeBoxManager : MonoBehaviour
     public int totalCost = 0;
     public int perUpgradeCost;
     public int currentUpgradeLevel = 0;
+    public int boxID;
     //upgrade counter
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
