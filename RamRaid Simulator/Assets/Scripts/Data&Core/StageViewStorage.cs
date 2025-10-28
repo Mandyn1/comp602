@@ -25,6 +25,11 @@ public class StageViewStorage : MonoBehaviour
     // On start populates indoor and outdoor arrays allowing access via an int value
     void Start()
     {
+        if (raider_S2_IndoorArray == null || raider_S2_IndoorArray.Length < 4)
+            raider_S2_IndoorArray = new GameObject[4];
+        if (raider_S2_OutdoorArray == null || raider_S2_OutdoorArray.Length < 4)
+            raider_S2_OutdoorArray = new GameObject[4];
+
         raider_S2_IndoorArray[0] = raider_S2_Indoor01;
         raider_S2_IndoorArray[1] = raider_S2_Indoor02;
         raider_S2_IndoorArray[2] = raider_S2_Indoor03;

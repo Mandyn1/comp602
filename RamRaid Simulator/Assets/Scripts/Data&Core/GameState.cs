@@ -1,4 +1,4 @@
-using UnityEngine;
+        using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
@@ -29,6 +29,9 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
+        if (playerData == null)
+            playerData = new Dictionary<int, PlayerData>();
+
         // True if first round
         if (playerData.Count == 0)
         {
@@ -51,8 +54,19 @@ public class GameState : MonoBehaviour
     public void SetPlayers()
     {
         // Populate hashmap
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[0].ActorNumber, new PlayerData());
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[1].ActorNumber, new PlayerData());
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+            foreach (var kvp in PhotonNetwork.CurrentRoom.Players)
+            {
+                int actorNumber = kvp.Key;
+                if (!playerData.ContainsKey(actorNumber))
+                    playerData.Add(actorNumber, new PlayerData());
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[GameState] Photon room not ready when calling SetPlayers()");
+        }
 
         // Get roles decided in Main Menu scene and destroy delivery container (no longer needed)
         if (PhotonNetwork.IsMasterClient)
