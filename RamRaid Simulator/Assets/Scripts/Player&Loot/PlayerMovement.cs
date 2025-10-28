@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             }
             catch (System.Exception)
             {
-                
+
                 rb.linearVelocity = moveInput * moveSpeed;
             }
         }
@@ -43,8 +43,13 @@ public class PlayerMovement : MonoBehaviour
         {
             moveInput = context.ReadValue<Vector2>();
         }
+        else
+        {
+            //freeze the players movement and reset the state (otherwise unfreeze will use last input)
+            rb.linearVelocity = Vector2.zero;
+            moveInput = Vector2.zero;
+        }
     }
-
     public void Freeze()
     {
         //freeze players movement
@@ -55,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //unfreezes players movement
         freeze = false;
+        
     }
 
 }

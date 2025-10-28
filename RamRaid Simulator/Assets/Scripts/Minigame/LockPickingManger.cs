@@ -52,6 +52,7 @@ public class LockPickingManger : MonoBehaviour
     public float play;
     public float closePlay;
     public bool hasPicked = false;
+    public bool hasFailed = false;
     public int numPicks;
 
 
@@ -60,12 +61,12 @@ public class LockPickingManger : MonoBehaviour
         //hide unlock buttons and add action listerner
         unlkButton.gameObject.SetActive(false);
         unlkButton.interactable = false;
-        unlkButton.onClick.AddListener(buttonClick);
+        unlkButton.onClick.AddListener(buttonClickSuccessfull);
         successMess.gameObject.SetActive(false);
 
         failButton.gameObject.SetActive(false);
         failButton.interactable = false;
-        failButton.onClick.AddListener(buttonClick);
+        failButton.onClick.AddListener(buttonClickFail);
         failMess.gameObject.SetActive(false);
         //set default status
         pickStatus.text = "Current Picks Remaining: " + numPicks.ToString();
@@ -250,14 +251,20 @@ public class LockPickingManger : MonoBehaviour
         unlkButton.gameObject.SetActive(true);
         unlkButton.interactable = true;
         successMess.gameObject.SetActive(true);
-
-        //has picked bool to true
-        hasPicked = true;
     }
 
-    void buttonClick()
+    void buttonClickFail()
     {
-        //SPACE FOR TRANSFERING DATA TO POINTS SYSTEM
+        //update status
+        hasFailed = true;
+        //set entire object as inactive
+        thisMinigame.gameObject.SetActive(false);
+    }
+
+    void buttonClickSuccessfull()
+    {
+        //update the status
+        hasPicked = true;
 
         //set entire object as inactive
         thisMinigame.gameObject.SetActive(false);
