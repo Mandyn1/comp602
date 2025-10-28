@@ -3,6 +3,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using Unity.VisualScripting;
+using System.Collections.Generic;
+using System;
 
 public class ReceiveEvents : MonoBehaviour, IOnEventCallback
 {
@@ -24,25 +26,9 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         // Update Current Raid Location Event
         if (eventCode == SendEvents.UpdateCurrentRaidLocationEventCode)
         {
-            int currentRaidLocation;
-
-            // handle both string ("3") and int (3) payloads safely
-            if (photonEvent.CustomData is int i)
-            {
-                currentRaidLocation = i;
-            }
-            else if (photonEvent.CustomData is string s && int.TryParse(s, out var parsed))
-            {
-                currentRaidLocation = parsed;
-            }
-            else
-            {
-                Debug.LogWarning($"ReceiveEvents: unexpected currentRaidLocation type: {photonEvent.CustomData?.GetType().Name}");
-                return;
-            }
-
-            gs.currentRaidLocation = currentRaidLocation;
-            return;
+            object[] data = (object[])photonEvent.CustomData;
+            gs.currentRaidLocation = (int)data[0];
+            gs.currentRaidModifier = (float)data[1];
         }
 
         // Update Score Event
@@ -66,7 +52,7 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
                     gs.PlayerSwap();
                 }
 
-                gs.roundCounter++;
+                gs.roundCounter = 0;
                 gs.Reset();
             }
         }
@@ -86,6 +72,22 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
             {
                 gs.playerWaiting = false;
                 gs.ProgressGame();
+            }
+        }
+
+        // Recieves and deposits stat data for other player that is otherwise not collected over course of game play
+        else if (eventCode == SendEvents.SendStatDataEventCode)
+        {
+            Dictionary<String, object> data = (Dictionary<String, object>)photonEvent.CustomData;
+
+            foreach (int playerNumber in gs.playerData.Keys)
+            {
+                if (playerNumber != gs.localPlayerNumber)
+                {
+                    gs.playerData[playerNumber].depositData(data);
+
+                    break;
+                }
             }
         }
     }

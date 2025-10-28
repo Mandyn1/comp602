@@ -16,6 +16,7 @@ public class GameState : MonoBehaviour
     public bool playerWaiting = false; // Changed in PlayerNowWaitingEvent 
 
     public int currentRaidLocation; // Index for accessing raid location array
+    public float currentRaidModifier;
 
     public int timer = 0;
     public int maxTimer;
@@ -101,9 +102,9 @@ public class GameState : MonoBehaviour
             if (p == localPlayerNumber) p1 = playerData[p];
             else p2 = playerData[p];
         }
-        gameObject.GetComponent<EndStatViewStorage>().loadData(p1, p2);
-        gameObject.GetComponent<StageViewStorage>().HideAll();
-        gameObject.GetComponent<StageViewStorage>().endGame.SetActive(true);
+        GameObject.Find("ViewStorage").GetComponent<EndStatViewStorage>().loadData(p1, p2);
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().HideAll();
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().endGame.SetActive(true);
         inEndGame = true;
     }
 
@@ -111,6 +112,8 @@ public class GameState : MonoBehaviour
     public void ProgressGame()
     {
         gameState++;
+
+        var view = GameObject.Find("ViewStorage").GetComponent<StageViewStorage>();
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -125,19 +128,19 @@ public class GameState : MonoBehaviour
         switch (gameState)
         {
             case 1:
-                gameObject.GetComponent<StageViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().raider_S1_LocationMap.SetActive(true);
-                else gameObject.GetComponent<StageViewStorage>().police_S1_CarPlacer.SetActive(true);
+                view.HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_S1_LocationMap.SetActive(true);
+                else view.police_S1_CarPlacer.SetActive(true);
                 break;
             case 2:
-                gameObject.GetComponent<StageViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
-                else gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
+                view.HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
+                else view.incomplete_GameStage.SetActive(true);
                 break;
             case 3:
-                gameObject.GetComponent<StageViewStorage>().HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
-                else gameObject.GetComponent<StageViewStorage>().incomplete_GameStage.SetActive(true);
+                view.HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") view.incomplete_GameStage.SetActive(true);
+                else view.incomplete_GameStage.SetActive(true);
                 break;
             default:
                 EndGame();

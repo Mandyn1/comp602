@@ -15001,6 +15001,7 @@ GameObject:
   - component: {fileID: 512742414}
   - component: {fileID: 512742413}
   - component: {fileID: 512742412}
+  - component: {fileID: 512742415}
   m_Layer: 5
   m_Name: LocationTwo
   m_TagString: Untagged
@@ -15045,10 +15046,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1884020670}
+        - m_Target: {fileID: 512742415}
           m_TargetAssemblyTypeName: LocationSelectController, Assembly-CSharp
-          m_MethodName: spawnToLocation
-          m_Mode: 5
+          m_MethodName: SelectLocation
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15095,6 +15096,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512742410}
   m_CullTransparentMesh: 1
+--- !u!114 &512742415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512742410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c7360f8ef3a744b922ba905ee456d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationSelectController
+  locationId: 2
+  displayName: Unnamed Location
+  rewardMultiplier: 0
+  difficultyTier: 1
 --- !u!1 &513144448
 GameObject:
   m_ObjectHideFlags: 0
@@ -44264,7 +44281,7 @@ Transform:
   m_GameObject: {fileID: 845816389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.099975586, y: -5.289978, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61448,6 +61465,7 @@ GameObject:
   - component: {fileID: 1256838194}
   - component: {fileID: 1256838193}
   - component: {fileID: 1256838192}
+  - component: {fileID: 1256838195}
   m_Layer: 5
   m_Name: LocationFour
   m_TagString: Untagged
@@ -61492,10 +61510,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1884020670}
+        - m_Target: {fileID: 1256838195}
           m_TargetAssemblyTypeName: LocationSelectController, Assembly-CSharp
-          m_MethodName: spawnToLocation
-          m_Mode: 5
+          m_MethodName: SelectLocation
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -61542,6 +61560,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256838190}
   m_CullTransparentMesh: 1
+--- !u!114 &1256838195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256838190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c7360f8ef3a744b922ba905ee456d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationSelectController
+  locationId: 4
+  displayName: Unnamed Location
+  rewardMultiplier: 0
+  difficultyTier: 1
 --- !u!1 &1257948040
 GameObject:
   m_ObjectHideFlags: 0
@@ -62200,7 +62234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1294264129
 Transform:
   m_ObjectHideFlags: 0
@@ -64988,8 +65022,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1507545317}
   - component: {fileID: 1507545316}
-  - component: {fileID: 1507545312}
-  - component: {fileID: 1507545320}
   - component: {fileID: 1507545313}
   - component: {fileID: 1507545314}
   - component: {fileID: 1507545318}
@@ -65001,35 +65033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1507545312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507545311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea08c77b8ed13c488c842bca3048ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ViewStorage
-  raider_S1_LocationMap: {fileID: 1486168748}
-  raider_S1_CarTheft: {fileID: 1294264128}
-  raider_S1_Waiting: {fileID: 1676219103}
-  raider_S2_Indoor01: {fileID: 649532882}
-  raider_S2_Indoor02: {fileID: 0}
-  raider_S2_Indoor03: {fileID: 0}
-  raider_S2_Indoor04: {fileID: 0}
-  raider_S2_Outdoor01: {fileID: 954193049}
-  raider_S2_Outdoor02: {fileID: 0}
-  raider_S2_Outdoor03: {fileID: 0}
-  raider_S2_Outdoor04: {fileID: 0}
-  police_S1_CarPlacer: {fileID: 380244267}
-  incomplete_GameStage: {fileID: 2143364064}
-  endGame: {fileID: 1191710317}
-  raider_S2_IndoorArray: []
-  raider_S2_OutdoorArray: []
+  m_IsActive: 1
 --- !u!114 &1507545313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65073,6 +65077,7 @@ MonoBehaviour:
   hasPlayerSwapped: 0
   playerWaiting: 0
   currentRaidLocation: 0
+  currentRaidModifier: 0
   timer: 0
   maxTimer: 0
   policeResponseTime: 0
@@ -65116,55 +65121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3989a17e6484894e92864879e442e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisconnectFromServer
---- !u!114 &1507545320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507545311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b6b9234a338e441b1c5097259ab107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EndStatViewStorage
-  tie: {fileID: 1151155620}
-  p1_winner: {fileID: 1612234808}
-  p1_name: {fileID: 1559111776}
-  p1_Score: {fileID: 976096913}
-  p1_Escapes: {fileID: 1851034963}
-  p1_SpentRaider: {fileID: 1160100015}
-  p1_CashRemainingRaider: {fileID: 828122053}
-  p1_CarsStolen: {fileID: 64102828}
-  p1_ContainersLooted: {fileID: 2079574260}
-  p1_TimeInRaid: {fileID: 1321397952}
-  p1_ItemsBoughtRaider: {fileID: 1878095220}
-  p1_ItemsUsedRaider: {fileID: 848815390}
-  p1_Captures: {fileID: 2134881829}
-  p1_SpentPolice: {fileID: 1505349205}
-  p1_CashRemainingPolice: {fileID: 1989917519}
-  p1_UnitsDeployed: {fileID: 158037574}
-  p1_TimeToRaid: {fileID: 203623316}
-  p1_ItemsBoughtPolice: {fileID: 745244375}
-  p1_ItemsUsedPolice: {fileID: 345192594}
-  p2_winner: {fileID: 1582040244}
-  p2_name: {fileID: 1676167139}
-  p2_Score: {fileID: 1390341402}
-  p2_Escapes: {fileID: 1699205380}
-  p2_SpentRaider: {fileID: 419734692}
-  p2_CashRemainingRaider: {fileID: 351636622}
-  p2_CarsStolen: {fileID: 793972545}
-  p2_ContainersLooted: {fileID: 83570397}
-  p2_TimeInRaid: {fileID: 173583604}
-  p2_ItemsBoughtRaider: {fileID: 2607281}
-  p2_ItemsUsedRaider: {fileID: 1749890876}
-  p2_Captures: {fileID: 12681204}
-  p2_SpentPolice: {fileID: 1519030852}
-  p2_CashRemainingPolice: {fileID: 1934508333}
-  p2_UnitsDeployed: {fileID: 1132329544}
-  p2_TimeToRaid: {fileID: 433589290}
-  p2_ItemsBoughtPolice: {fileID: 716755532}
-  p2_ItemsUsedPolice: {fileID: 354061993}
 --- !u!114 &1507545321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67374,6 +67330,116 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615280986}
   m_CullTransparentMesh: 1
+--- !u!1 &1624417242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624417245}
+  - component: {fileID: 1624417244}
+  - component: {fileID: 1624417243}
+  m_Layer: 0
+  m_Name: ViewStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1624417243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624417242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b6b9234a338e441b1c5097259ab107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndStatViewStorage
+  tie: {fileID: 1151155620}
+  p1_winner: {fileID: 1612234808}
+  p1_name: {fileID: 1559111776}
+  p1_Score: {fileID: 976096913}
+  p1_Escapes: {fileID: 1851034963}
+  p1_SpentRaider: {fileID: 1160100015}
+  p1_CashRemainingRaider: {fileID: 828122053}
+  p1_CarsStolen: {fileID: 64102828}
+  p1_ContainersLooted: {fileID: 2079574260}
+  p1_TimeInRaid: {fileID: 1321397952}
+  p1_ItemsBoughtRaider: {fileID: 1878095220}
+  p1_ItemsUsedRaider: {fileID: 848815390}
+  p1_Captures: {fileID: 2134881829}
+  p1_SpentPolice: {fileID: 1505349205}
+  p1_CashRemainingPolice: {fileID: 1989917519}
+  p1_UnitsDeployed: {fileID: 158037574}
+  p1_TimeToRaid: {fileID: 203623316}
+  p1_ItemsBoughtPolice: {fileID: 745244375}
+  p1_ItemsUsedPolice: {fileID: 345192594}
+  p2_winner: {fileID: 1582040244}
+  p2_name: {fileID: 1676167139}
+  p2_Score: {fileID: 1390341402}
+  p2_Escapes: {fileID: 1699205380}
+  p2_SpentRaider: {fileID: 419734692}
+  p2_CashRemainingRaider: {fileID: 351636622}
+  p2_CarsStolen: {fileID: 793972545}
+  p2_ContainersLooted: {fileID: 83570397}
+  p2_TimeInRaid: {fileID: 173583604}
+  p2_ItemsBoughtRaider: {fileID: 2607281}
+  p2_ItemsUsedRaider: {fileID: 1749890876}
+  p2_Captures: {fileID: 12681204}
+  p2_SpentPolice: {fileID: 1519030852}
+  p2_CashRemainingPolice: {fileID: 1934508333}
+  p2_UnitsDeployed: {fileID: 1132329544}
+  p2_TimeToRaid: {fileID: 433589290}
+  p2_ItemsBoughtPolice: {fileID: 716755532}
+  p2_ItemsUsedPolice: {fileID: 354061993}
+--- !u!114 &1624417244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624417242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea08c77b8ed13c488c842bca3048ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ViewStorage
+  raider_S1_LocationMap: {fileID: 1486168748}
+  raider_S1_CarTheft: {fileID: 1294264128}
+  raider_S1_Waiting: {fileID: 1676219103}
+  raider_S2_Indoor01: {fileID: 649532882}
+  raider_S2_Indoor02: {fileID: 0}
+  raider_S2_Indoor03: {fileID: 0}
+  raider_S2_Indoor04: {fileID: 0}
+  raider_S2_Outdoor01: {fileID: 954193049}
+  raider_S2_Outdoor02: {fileID: 0}
+  raider_S2_Outdoor03: {fileID: 0}
+  raider_S2_Outdoor04: {fileID: 0}
+  police_S1_CarPlacer: {fileID: 380244267}
+  incomplete_GameStage: {fileID: 2143364064}
+  endGame: {fileID: 1191710317}
+  raider_S2_IndoorArray: []
+  raider_S2_OutdoorArray: []
+--- !u!4 &1624417245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624417242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1275.106, y: 680.86285, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638775751
 GameObject:
   m_ObjectHideFlags: 0
@@ -67386,6 +67452,7 @@ GameObject:
   - component: {fileID: 1638775755}
   - component: {fileID: 1638775754}
   - component: {fileID: 1638775753}
+  - component: {fileID: 1638775756}
   m_Layer: 5
   m_Name: LocationThree
   m_TagString: Untagged
@@ -67430,10 +67497,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1884020670}
+        - m_Target: {fileID: 1638775756}
           m_TargetAssemblyTypeName: LocationSelectController, Assembly-CSharp
-          m_MethodName: spawnToLocation
-          m_Mode: 5
+          m_MethodName: SelectLocation
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -67480,6 +67547,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638775751}
   m_CullTransparentMesh: 1
+--- !u!114 &1638775756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638775751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c7360f8ef3a744b922ba905ee456d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationSelectController
+  locationId: 3
+  displayName: Unnamed Location
+  rewardMultiplier: 0
+  difficultyTier: 1
 --- !u!1 &1646477720
 GameObject:
   m_ObjectHideFlags: 0
@@ -71148,7 +71231,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884020669}
-  - component: {fileID: 1884020670}
   m_Layer: 5
   m_Name: Locations
   m_TagString: Untagged
@@ -71179,18 +71261,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1884020670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884020668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c7360f8ef3a744b922ba905ee456d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &1894350252
 GameObject:
   m_ObjectHideFlags: 0
@@ -71871,6 +71941,7 @@ GameObject:
   - component: {fileID: 1943349113}
   - component: {fileID: 1943349112}
   - component: {fileID: 1943349111}
+  - component: {fileID: 1943349114}
   m_Layer: 5
   m_Name: LocationOne
   m_TagString: Untagged
@@ -71915,16 +71986,16 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1884020670}
+        - m_Target: {fileID: 1943349114}
           m_TargetAssemblyTypeName: LocationSelectController, Assembly-CSharp
-          m_MethodName: spawnToLocation
-          m_Mode: 5
+          m_MethodName: SelectLocation
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: RaidScene_O_1
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1943349112
@@ -71965,6 +72036,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943349109}
   m_CullTransparentMesh: 1
+--- !u!114 &1943349114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943349109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c7360f8ef3a744b922ba905ee456d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocationSelectController
+  locationId: 1
+  displayName: Unnamed Location
+  rewardMultiplier: 0
+  difficultyTier: 1
 --- !u!1 &1973338063
 GameObject:
   m_ObjectHideFlags: 0
@@ -84935,3 +85022,4 @@ SceneRoots:
   - {fileID: 1507545317}
   - {fileID: 74971586}
   - {fileID: 845816391}
+  - {fileID: 1624417245}
