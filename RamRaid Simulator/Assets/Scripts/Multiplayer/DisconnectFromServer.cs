@@ -20,6 +20,7 @@ public class DisconnectFromServer : MonoBehaviourPunCallbacks
     // Moves to PlayerDisconnecetd scene if other player leaves for any reason
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        if (gameObject.name == "GameManager" && gameObject.GetComponent<GameState>().inEndGame) return;
         SceneManager.LoadScene("PlayerDisconnected");
     }
 }

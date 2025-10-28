@@ -17,7 +17,7 @@ public class SendEvents : MonoBehaviourPunCallbacks
     public const byte SendStatDataEventCode = 6;
 
     // Syncing current raid location
-    public void UpdateCurrentRaidLocationEvent(string currentRaidLocation)
+    public void UpdateCurrentRaidLocationEvent(int currentRaidLocation)
     {
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
         PhotonNetwork.RaiseEvent(UpdateCurrentRaidLocationEventCode, currentRaidLocation, raiseEventOptions, SendOptions.SendReliable);
