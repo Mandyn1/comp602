@@ -9,14 +9,16 @@ public class CarTheftMiniGame : MonoBehaviour
     {
         PlayerPrefs.SetString("Vehicle", "Car");
         PlayerPrefs.Save();
-        SceneManager.LoadScene(waitingSceneName);
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().HideAll();
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().raider_S1_Waiting.SetActive(true);
     }
 
     public void OnLose()
     {
         PlayerPrefs.SetString("Vehicle", "Motorbike");
         PlayerPrefs.Save();
-        SceneManager.LoadScene(waitingSceneName);
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().HideAll();
+        GameObject.Find("ViewStorage").GetComponent<StageViewStorage>().raider_S1_Waiting.SetActive(true);
     }
 }
 
