@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,8 +23,16 @@ public class PlayerMovement : MonoBehaviour
         //update players position
         if (!freeze)
         {
-            var gm = GameObject.Find("GameManager").GetComponent<GameState>();
-            rb.linearVelocity = moveInput * (moveSpeed + gm.playerData[gm.localPlayerNumber].fasterRaiderMovement);
+            try
+            {
+                var gm = GameObject.Find("GameManager").GetComponent<GameState>();
+                rb.linearVelocity = moveInput * (moveSpeed + gm.playerData[gm.localPlayerNumber].fasterRaiderMovement);
+            }
+            catch (System.Exception)
+            {
+                
+                rb.linearVelocity = moveInput * moveSpeed;
+            }
         }
     }
 
