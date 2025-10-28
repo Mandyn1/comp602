@@ -16,6 +16,7 @@ public class GameState : MonoBehaviour
     public bool playerWaiting = false; // Changed in PlayerNowWaitingEvent 
 
     public int currentRaidLocation; // Index for accessing raid location array
+    public float currentRaidModifier;
 
     public int timer = 0;
     public int maxTimer;

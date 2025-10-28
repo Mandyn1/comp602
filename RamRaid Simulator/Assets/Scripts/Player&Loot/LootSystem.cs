@@ -13,7 +13,7 @@ public static class LootSystem
         if (item.IsStolen) return 0;
 
         // Combine the item payout with the active location multiplier
-        float locMul = LocationModifier.ActiveRewardMultiplier; // defaults to 1 if none
+        float locMul = GameObject.Find("GameManager").GetComponent<GameState>().currentRaidModifier; // defaults to 1 if none
         float raw = Mathf.Max(0, item.baseValue) * Mathf.Max(0f, item.multiplier) * Mathf.Max(0f, locMul);
         int payout = Mathf.RoundToInt(raw);
 

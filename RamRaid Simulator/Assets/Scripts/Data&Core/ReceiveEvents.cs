@@ -26,7 +26,9 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         // Update Current Raid Location Event
         if (eventCode == SendEvents.UpdateCurrentRaidLocationEventCode)
         {
-            gs.currentRaidLocation = (int)photonEvent.CustomData;
+            object[] data = (object[])photonEvent.CustomData;
+            gs.currentRaidLocation = (int)data[0];
+            gs.currentRaidModifier = (float)data[1];
         }
 
         // Update Score Event
