@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7891839073615831345}
   - component: {fileID: 5612045504831600955}
   - component: {fileID: 431995745019502956}
-  - component: {fileID: 2940683666896113916}
   - component: {fileID: 1146305570820739868}
+  - component: {fileID: 5717644702193582283}
   m_Layer: 0
   m_Name: Motorbike
   m_TagString: Untagged
@@ -167,19 +167,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2940683666896113916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4607087728768977219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51168ae0abcbfd141a92552bc45835e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VehicleMovement
-  moveSpeed: 8
 --- !u!114 &1146305570820739868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +206,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2940683666896113916}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VehicleMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -310,3 +297,16 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5717644702193582283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607087728768977219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4f4043ebe96444f9dd59803764206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleMovement
+  moveSpeed: 8

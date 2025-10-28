@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6403812196837557866}
   - component: {fileID: 1703184003544999767}
-  - component: {fileID: 7013823329523770174}
   - component: {fileID: 4589258141018438819}
   - component: {fileID: 4464284319528878908}
   - component: {fileID: 3964741450299467641}
-  - component: {fileID: 8807980351433269183}
+  - component: {fileID: 2078559675357053389}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -95,23 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7013823329523770174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3481549253420640239}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220aedd3d93413044a543f23663368bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  carMenuUI: {fileID: 0}
-  carMenu: {fileID: 0}
-  carInfo: 'Car: Mazda Miata 1997
-
-    Engine 1.8L'
 --- !u!50 &4589258141018438819
 Rigidbody2D:
   serializedVersion: 5
@@ -215,7 +197,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8807980351433269183}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VehicleMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -306,7 +288,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8807980351433269183
+--- !u!114 &2078559675357053389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,7 +297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3481549253420640239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51168ae0abcbfd141a92552bc45835e1, type: 3}
+  m_Script: {fileID: 11500000, guid: aa4f4043ebe96444f9dd59803764206f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleMovement
   moveSpeed: 8
