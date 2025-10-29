@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f76a3e29b4c904844b694769e90a8af9
+guid: 9916e65fa4438406b981226c8453f4d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7619271641471047065
-    second: RAIDERPOV_0
+      213: 813966248207558756
+    second: RaiderPOV_FINAL_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RAIDERPOV_0
+      name: RaiderPOV_FINAL_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 995d61570371db960800000000000000
-      internalID: 7619271641471047065
+      spriteID: 468a19b7df9cb4b00800000000000000
+      internalID: 813966248207558756
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RAIDERPOV_0: 7619271641471047065
+      RaiderPOV_FINAL_0: 813966248207558756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
