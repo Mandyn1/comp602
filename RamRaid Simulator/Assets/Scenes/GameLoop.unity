@@ -1139,7 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
-  waitingSceneName: WaitingScene
 --- !u!114 &18164116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17025,8 +17024,8 @@ Transform:
   m_GameObject: {fileID: 360774944}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7514648, y: 0.20202637, z: 0}
-  m_LocalScale: {x: 0.9731819, y: 0.97610754, z: 1}
+  m_LocalPosition: {x: 1.664, y: 0.17, z: 0}
+  m_LocalScale: {x: 0.93493265, y: 0.92942405, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 217327313}
@@ -17124,7 +17123,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7011661911796687584, guid: 32fa1e9a728a746828e634798a5045fd, type: 3}
+  m_Sprite: {fileID: -7011661911796687584, guid: bddf038fd19f14656a48e60835a4c525, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.007843138}
   m_FlipX: 0
   m_FlipY: 0
@@ -17132,7 +17131,7 @@ SpriteRenderer:
   m_Size: {x: 16.1, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &363879922
@@ -23940,7 +23939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &491646316
 Transform:
   m_ObjectHideFlags: 0
@@ -44870,12 +44869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f0a506329394d5d88b39cbb4345d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoadMaskPlacement
-  cam: {fileID: 0}
+  cam: {fileID: 1858489790}
   roadMaskSR: {fileID: 360774947}
   roadMaskCollider: {fileID: 360774946}
-  policeCarPrefab: {fileID: 4949034141314048803, guid: 7363471dbbbb840be81ad668f459266d, type: 3}
+  policeCarPrefab: {fileID: 4949034141314048803, guid: 042315e964fd7234a97acdac87d536de, type: 3}
   parentForCars: {fileID: 0}
-  maskTexture: {fileID: 2800000, guid: 413976afff3224e9995e2abc4b419dea, type: 3}
+  maskTexture: {fileID: 2800000, guid: bddf038fd19f14656a48e60835a4c525, type: 3}
   alphaThreshold: 0.1
   minSpacing: 1.5
   minRaidDistance: 6
@@ -67572,11 +67571,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 979583733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42140b8e2f057c54381c1a6f20b6dd06, type: 3}
+  m_Script: {fileID: 11500000, guid: ec34df02cf4a0b5408d3bed055f19a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PolicePlacementManager
-  cam: {fileID: 0}
-  policePrefab: {fileID: 0}
+  cam: {fileID: 1858489790}
+  policePrefab: {fileID: 4949034141314048803, guid: 042315e964fd7234a97acdac87d536de, type: 3}
   maxUnits: 3
   placedUnits: []
   stopped: 0
@@ -68538,7 +68537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1023177883
 Transform:
   m_ObjectHideFlags: 0
@@ -74037,9 +74036,9 @@ MonoBehaviour:
   raidTag: RaidTarget
   moveSpeed: 2
   accel: 1.5
-  roadMask: {fileID: 2800000, guid: 413976afff3224e9995e2abc4b419dea, type: 3}
-  worldMin: {x: -45, y: -25}
-  worldMax: {x: 45, y: 25}
+  roadMask: {fileID: 2800000, guid: bddf038fd19f14656a48e60835a4c525, type: 3}
+  worldMin: {x: -50, y: -35}
+  worldMax: {x: 50, y: 35}
 --- !u!1 &1367226974
 GameObject:
   m_ObjectHideFlags: 0
@@ -81774,8 +81773,8 @@ Transform:
   m_GameObject: {fileID: 1638672786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24145508, y: 0.15203857, z: 0}
-  m_LocalScale: {x: 0.9587472, y: 0.95874745, z: 0.95874745}
+  m_LocalPosition: {x: 0.237, y: 0.152, z: 0}
+  m_LocalScale: {x: 0.9265933, y: 0.92762613, z: 0.95874745}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 658931548}
@@ -81873,7 +81872,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1a507cff41d1444f82578a7418a8aaf, type: 3}
+  m_Sprite: {fileID: 5490059392051023666, guid: e403a9961558e4d21ad8774c4f983d96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81881,7 +81880,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1638775751
@@ -100593,7 +100592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf69de1b6f7a284382572d14c0f3957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTheftMiniGame
-  waitingSceneName: WaitingScene
 --- !u!114 &2136457127
 MonoBehaviour:
   m_ObjectHideFlags: 0
