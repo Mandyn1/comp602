@@ -125,7 +125,7 @@ void initboxes()
         //clear erro message
         errorMessage.text = "";
     }
-    
+
     void applyUpgrades()
     {
         //first check if user has enough money to purchse
@@ -140,9 +140,10 @@ void initboxes()
                 balance -= totalCost;
                 state.playerData[state.localPlayerNumber].policeBank = balance;
             }
-            
+
             //now update the variablers in the player manager
-            foreach (GameObject box in upgradeBoxes){
+            foreach (GameObject box in upgradeBoxes)
+            {
                 upgradeBoxManager boxScript = box.GetComponent<upgradeBoxManager>();
 
                 //assign the correct values
@@ -154,7 +155,7 @@ void initboxes()
                 {
                     state.playerData[state.localPlayerNumber].fasterPoliceUnit = boxScript.currentUpgradeLevel;
                 }
-                else if(boxScript.boxID == 3) //better modidier
+                else if (boxScript.boxID == 3) //better modidier
                 {
                     state.playerData[state.localPlayerNumber].betterModifierPolice = boxScript.currentUpgradeLevel;
                 }
@@ -166,5 +167,10 @@ void initboxes()
             //user does not have enough money, update err text
             errorMessage.text = "You Do Not Have Enough Money!!!";
         }
+    }
+    
+    public void LeaveShop()
+    {
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
     }
 }

@@ -30,6 +30,7 @@ public class GameState : MonoBehaviour
 
     public void GamePrep()
     {
+        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         // True if first round
         if (playerData == null)
         {
@@ -45,7 +46,6 @@ public class GameState : MonoBehaviour
     // Move to a fresh instance of GameLoop scene for next round
     public void Reset()
     {
-        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("GameLoop");
     }
 
@@ -118,14 +118,16 @@ public class GameState : MonoBehaviour
 
         var view = GameObject.Find("ViewStorage").GetComponent<StageViewStorage>();
 
-        if (PhotonNetwork.IsMasterClient)
+
+        if (gameState > 4)
         {
-            if (gameState > 4)
+            if (PhotonNetwork.IsMasterClient)
             {
                 // Input checks if player swapping or game is finished, otherwise resets 
                 gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
             }
         }
+        else return;
 
         // Change user view to correct current stage
         switch (gameState)

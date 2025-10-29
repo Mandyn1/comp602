@@ -86830,9 +86830,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1507545313}
-        m_TargetAssemblyTypeName: SendEvents, Assembly-CSharp
-        m_MethodName: PlayerNowWaitingEvent
+      - m_Target: {fileID: 1495352776}
+        m_TargetAssemblyTypeName: PoliceShopManager, Assembly-CSharp
+        m_MethodName: LeaveShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
