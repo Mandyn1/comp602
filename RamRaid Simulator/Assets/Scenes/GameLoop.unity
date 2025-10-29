@@ -1388,7 +1388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &42077424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81644,12 +81644,12 @@ MonoBehaviour:
   raider_S1_Waiting: {fileID: 1676219103}
   raider_S2_Indoor01: {fileID: 566298397}
   raider_S2_OutdoorEnter: {fileID: 1367226974}
-  police_S1_CarPlacer: {fileID: 380244267}
-  incomplete_GameStage: {fileID: 2143364064}
+  police_S1_CarPlacer: {fileID: 2143364064}
+  police_S2_CarMoving: {fileID: 2143364064}
   endGame: {fileID: 1191710317}
   raidComplete: {fileID: 1672754223}
-  raider_Shop: {fileID: 0}
-  police_Shop: {fileID: 0}
+  raider_Shop: {fileID: 2143364064}
+  police_Shop: {fileID: 42077423}
 --- !u!4 &1624417245
 Transform:
   m_ObjectHideFlags: 0

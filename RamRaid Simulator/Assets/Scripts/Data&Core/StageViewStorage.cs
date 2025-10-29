@@ -10,7 +10,7 @@ public class StageViewStorage : MonoBehaviour
     public GameObject raider_S2_Indoor01;
     public GameObject raider_S2_OutdoorEnter;
     public GameObject police_S1_CarPlacer;
-    public GameObject incomplete_GameStage;
+    public GameObject police_S2_CarMoving;
     public GameObject endGame;
     public GameObject raidComplete;
     public GameObject raider_Shop;
@@ -25,7 +25,7 @@ public class StageViewStorage : MonoBehaviour
         if (raider_S2_Indoor01.activeInHierarchy) raider_S2_Indoor01.SetActive(false);
         if (raider_S2_OutdoorEnter.activeInHierarchy) raider_S2_OutdoorEnter.SetActive(false);
         if (police_S1_CarPlacer.activeInHierarchy) police_S1_CarPlacer.SetActive(false);
-        if (incomplete_GameStage.activeInHierarchy) incomplete_GameStage.SetActive(false);
+        if (police_S2_CarMoving.activeInHierarchy) police_S2_CarMoving.SetActive(false);
         if (endGame.activeInHierarchy) endGame.SetActive(false);
         if (raidComplete.activeInHierarchy) raidComplete.SetActive(false);
         if (police_Shop.activeInHierarchy) police_Shop.SetActive(false);
