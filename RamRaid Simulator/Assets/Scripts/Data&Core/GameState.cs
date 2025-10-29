@@ -147,7 +147,11 @@ public class GameState : MonoBehaviour
             case 2: // Raid
                 view.HideAll();
                 if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorEnter.SetActive(true);
-                else view.police_S2_CarMoving.GetComponent<RaidModeController>().StartRaid();
+                else
+                {
+                    view.police_S2_CarMoving.SetActive(true);
+                    view.police_S2_CarMovingTrigger.GetComponent<RaidModeController>().StartRaid();
+                }
                 break;
             case 3: // Raid Results
                 view.HideAll();

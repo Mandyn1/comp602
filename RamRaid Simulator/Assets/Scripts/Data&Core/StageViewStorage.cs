@@ -11,6 +11,7 @@ public class StageViewStorage : MonoBehaviour
     public GameObject raider_S2_OutdoorEnter;
     public GameObject police_S1_CarPlacer;
     public GameObject police_S2_CarMoving;
+    public GameObject police_S2_CarMovingTrigger;
     public GameObject endGame;
     public GameObject raidComplete;
     public GameObject raider_Shop;

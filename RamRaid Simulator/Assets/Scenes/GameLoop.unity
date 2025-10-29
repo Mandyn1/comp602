@@ -79124,6 +79124,7 @@ MonoBehaviour:
   maxTimer: 0
   policeResponseTime: 0
   localPlayerNumber: 0
+  playerPositionsSet: 0
 --- !u!4 &1507545317
 Transform:
   m_ObjectHideFlags: 0
@@ -81834,7 +81835,8 @@ MonoBehaviour:
   raider_S2_Indoor01: {fileID: 566298397}
   raider_S2_OutdoorEnter: {fileID: 1367226974}
   police_S1_CarPlacer: {fileID: 491646315}
-  police_S2_CarMoving: {fileID: 1819037482}
+  police_S2_CarMoving: {fileID: 491646315}
+  police_S2_CarMovingTrigger: {fileID: 1819037482}
   endGame: {fileID: 1191710317}
   raidComplete: {fileID: 1672754223}
   raider_Shop: {fileID: 2143364064}
