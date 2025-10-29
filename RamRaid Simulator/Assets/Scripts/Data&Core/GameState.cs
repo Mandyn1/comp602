@@ -117,7 +117,7 @@ public class GameState : MonoBehaviour
 
         if (PhotonNetwork.IsMasterClient)
         {
-            if (gameState > 3)
+            if (gameState > 4)
             {
                 // Input checks if player swapping or game is finished, otherwise resets 
                 gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
@@ -127,20 +127,25 @@ public class GameState : MonoBehaviour
         // Change user view to correct current stage
         switch (gameState)
         {
-            case 1:
+            case 1: // Setup
                 view.HideAll();
                 if (playerData[localPlayerNumber].position == "Raider") view.raider_S1_LocationMap.SetActive(true);
                 else view.police_S1_CarPlacer.SetActive(true);
                 break;
-            case 2:
+            case 2: // Raid
                 view.HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorEnter.SetActive(true);
                 else view.incomplete_GameStage.SetActive(true);
                 break;
-            case 3:
+            case 3: // Raid Results
                 view.HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") view.incomplete_GameStage.SetActive(true);
-                else view.incomplete_GameStage.SetActive(true);
+                GameObject.Find("ViewStorage").GetComponent<RaidCompleteViewStorage>().UpdateText();
+                view.raidComplete.SetActive(true);
+                break;
+            case 4: // Shop
+                view.HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_Shop.SetActive(true);
+                else view.police_Shop.SetActive(true);
                 break;
             default:
                 EndGame();
