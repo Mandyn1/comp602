@@ -126,8 +126,8 @@ public class GameState : MonoBehaviour
                 // Input checks if player swapping or game is finished, otherwise resets 
                 gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
             }
+            else return;
         }
-        else return;
 
         // Change user view to correct current stage
         switch (gameState)
