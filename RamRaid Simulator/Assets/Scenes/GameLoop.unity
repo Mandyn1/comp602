@@ -81568,6 +81568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1624417245}
+  - component: {fileID: 1624417247}
   - component: {fileID: 1624417244}
   - component: {fileID: 1624417243}
   - component: {fileID: 1624417246}
@@ -81684,6 +81685,18 @@ MonoBehaviour:
   wasCaughtText: {fileID: 1799604027}
   cashTakeText: {fileID: 337099992}
   playerWallet: {fileID: 163919709}
+--- !u!114 &1624417247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624417242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f725771bd1f263943a771605b8569504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartManager
 --- !u!1 &1638775751
 GameObject:
   m_ObjectHideFlags: 0

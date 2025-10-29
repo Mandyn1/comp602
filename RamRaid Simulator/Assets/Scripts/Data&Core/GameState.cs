@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour
     // Key is ActorNumber, can access own data with localPlayerNumber
     public Dictionary<int, PlayerData> playerData; 
 
-    void Start()
+    public void GamePrep()
     {
         // True if first round
         if (playerData.Count == 0)
