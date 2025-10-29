@@ -62,6 +62,8 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         {
             object[] data = (object[])photonEvent.CustomData;
             gs.playerData[(int)data[0]].position = (string)data[1];
+            gs.playerPositionsSet++;
+            if (gs.playerPositionsSet == 2) gs.ContinuePrep();
         }
 
         // Player waiting event, starts next phase if a player is already waiting

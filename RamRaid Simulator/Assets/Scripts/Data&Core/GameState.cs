@@ -23,10 +23,11 @@ public class GameState : MonoBehaviour
     public float policeResponseTime;
 
     public int localPlayerNumber; // PhotonNetwork.LocalPlayer.ActorNumber
+    public int playerPositionsSet = 0;
 
     // Removes requirement to check ordering in PhotonNetwork.CurrentRoom.Players array
     // Key is ActorNumber, can access own data with localPlayerNumber
-    public Dictionary<int, PlayerData> playerData; 
+    public Dictionary<int, PlayerData> playerData = null;
 
     public void GamePrep()
     {
@@ -38,7 +39,11 @@ public class GameState : MonoBehaviour
             localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
             SetPlayers();
         }
-
+        if (playerPositionsSet == 2) ContinuePrep();
+    }
+    
+    public void ContinuePrep()
+    {
         gameState = 0;
         ProgressGame();
     }
@@ -128,6 +133,8 @@ public class GameState : MonoBehaviour
             }
             else return;
         }
+        print(playerData != null);
+        print(playerData[localPlayerNumber].position);
 
         // Change user view to correct current stage
         switch (gameState)
