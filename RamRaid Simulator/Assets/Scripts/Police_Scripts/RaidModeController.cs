@@ -48,14 +48,25 @@ public class RaidModeController : MonoBehaviour
         if (cars.Length == 0) { Debug.LogWarning("[Raid] No PoliceCar instances. Tag your prefab 'PoliceCar'."); return; }
         if (targets.Length == 0) { Debug.LogWarning("[Raid] No RaidTarget objects. Tag your locations."); return; }
 
+        Transform best = null;
+
+        //This has changed to get the actual raid location and pick the correct car rather than the first car placed - Josh
+        foreach (GameObject t in targets)
+        {
+            if (t.name == GameObject.Find("GameManager").GetComponent<GameState>().currentRaidLocation.ToString())
+            {
+                best = t.transform;
+            }
+        }
+
         // 4) pick first car + nearest target 
         GameObject car = cars[0];
-        Transform best = targets[0].transform;
-        float bestD = Vector3.Distance(car.transform.position, best.position);
+        //Transform best = targets[0].transform;
+        float bestD = Vector3.Distance(best.position, car.transform.position);
         for (int i = 1; i < targets.Length; i++)
         {
-        float d = Vector3.Distance(car.transform.position, targets[i].transform.position);
-        if (d < bestD) { bestD = d; best = targets[i].transform; }
+            float d = Vector3.Distance(best.position, cars[i].transform.position);
+            if (d < bestD) { bestD = d; car = cars[i]; }
         }
 
         Debug.Log($"[Raid] sending {car.name} → {best.name} (dist {bestD:F1})");
@@ -110,11 +121,11 @@ public class RaidModeController : MonoBehaviour
     // (see bounds in scene view 
     void OnDrawGizmosSelected()
     {
-     Gizmos.color = Color.yellow;
+        Gizmos.color = Color.yellow;
         Vector3 a = new Vector3(worldMin.x, worldMin.y, 0);
         Vector3 b = new Vector3(worldMax.x, worldMin.y, 0);
         Vector3 c = new Vector3(worldMax.x, worldMax.y, 0);
         Vector3 d = new Vector3(worldMin.x, worldMax.y, 0);
-        Gizmos.DrawLine(a,b); Gizmos.DrawLine(b,c); Gizmos.DrawLine(c,d); Gizmos.DrawLine(d,a);
+        Gizmos.DrawLine(a, b); Gizmos.DrawLine(b, c); Gizmos.DrawLine(c, d); Gizmos.DrawLine(d, a);
     }
 }

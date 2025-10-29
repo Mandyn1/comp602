@@ -18,6 +18,9 @@ public class PolicePlacementManager : MonoBehaviour
 
     public bool stopped = false;
 
+    public GameObject readyButton;
+    public GameObject waitingText;
+
     /// <summary>
     /// Call this from your placement click code BEFORE placing/removing.
     /// Example:
@@ -61,5 +64,12 @@ public class PolicePlacementManager : MonoBehaviour
             if (d < bestDist) { bestDist = d; best = u; }
         }
         if (best != null && bestDist <= maxRadius) RemoveUnit(best);
+    }
+
+    public void FinishedPlacing()
+    {
+        readyButton.SetActive(false);
+        waitingText.SetActive(true);
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
     }
 }
