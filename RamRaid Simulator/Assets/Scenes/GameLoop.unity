@@ -15150,8 +15150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef12caee348a18419a8faf5f4942048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IndoorRaidSceneTransition
-  transitionTo: {fileID: 2091073082}
-  currentScene: {fileID: 566298397}
   Player: {fileID: 163919709}
   wayPointActive: 1
   indoorLocation: 1
@@ -69405,9 +69403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef12caee348a18419a8faf5f4942048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  transitionTo: {fileID: 0}
-  currentScene: {fileID: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 163919709}
   wayPointActive: 1
   indoorLocation: 1
   outdoorLocation: 0

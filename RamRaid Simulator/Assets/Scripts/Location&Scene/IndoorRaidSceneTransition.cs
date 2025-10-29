@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class IndoorRaidSceneTransition : MonoBehaviour
 {
     //variables 
-    public GameObject transitionTo;
-    public GameObject currentScene;
+    //public GameObject transitionTo;
+    //public GameObject currentScene;
 
     public GameObject Player;
     private PlayerWallet wallet;
@@ -18,16 +18,16 @@ public class IndoorRaidSceneTransition : MonoBehaviour
 
     void Start()
     {
-        //need to disable the parsed in scene first so no obverlap
-        if (transitionTo != null)
-        {
-            transitionTo.SetActive(false);
-        }
-        else
-        {
-            //prinmt debiug
-            Debug.Log("cannot set object as inacive (already null)");
-        }
+        // //need to disable the parsed in scene first so no obverlap
+        // if (transitionTo != null)
+        // {
+        //     transitionTo.SetActive(false);
+        // }
+        // else
+        // {
+        //     //prinmt debiug
+        //     Debug.Log("cannot set object as inacive (already null)");
+        // }
 
         //if the location is indoor, get the players wallet
         if (indoorLocation)

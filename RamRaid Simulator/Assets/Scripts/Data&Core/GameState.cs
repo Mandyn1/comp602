@@ -65,7 +65,7 @@ public class GameState : MonoBehaviour
             string otherRole = "Police";
             GameObject startingRoles = GameObject.Find("StartingRoles");
 
-            if (startingRoles.GetComponent<StartingRoles>() != null)
+            if (startingRoles != null)
             {
                 hostRole = startingRoles.GetComponent<StartingRoles>().hostRole;
                 otherRole = startingRoles.GetComponent<StartingRoles>().otherRole;
