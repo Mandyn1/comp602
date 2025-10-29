@@ -4018,8 +4018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cc448eb764a3940b3255a8164c73d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectFlash
-  targetObject: {fileID: 155207838}
-  repeatTime: 0.25
+  targetObject: {fileID: 0}
+  repeatTime: 1
 --- !u!114 &1429732399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5406,8 +5406,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2029331811}
-  - component: {fileID: 2029331810}
   - component: {fileID: 2029331809}
+  - component: {fileID: 2029331812}
   m_Layer: 0
   m_Name: StartingRoles
   m_TagString: Untagged
@@ -5434,18 +5434,6 @@ MonoBehaviour:
   randomiseButton: {fileID: 1236241675}
   manualButton: {fileID: 525346505}
   swapButton: {fileID: 1065920487}
---- !u!114 &2029331810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029331808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23520d762ff4fd0448576adce2e9b90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MakePersistant
 --- !u!4 &2029331811
 Transform:
   m_ObjectHideFlags: 0
@@ -5461,6 +5449,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029331812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029331808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16946ec699aa987498849b4c56e3ba29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MakePersistantStartingRoles
 --- !u!1 &2051582629
 GameObject:
   m_ObjectHideFlags: 0
