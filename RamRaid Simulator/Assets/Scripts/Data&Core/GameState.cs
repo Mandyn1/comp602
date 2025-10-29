@@ -28,11 +28,13 @@ public class GameState : MonoBehaviour
     // Key is ActorNumber, can access own data with localPlayerNumber
     public Dictionary<int, PlayerData> playerData; 
 
-    void Start()
+    public void GamePrep()
     {
+        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         // True if first round
-        if (playerData.Count == 0)
+        if (playerData == null)
         {
+            playerData = new Dictionary<int, PlayerData>();
             localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
             SetPlayers();
         }
@@ -44,7 +46,6 @@ public class GameState : MonoBehaviour
     // Move to a fresh instance of GameLoop scene for next round
     public void Reset()
     {
-        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("GameLoop");
     }
 
@@ -52,8 +53,10 @@ public class GameState : MonoBehaviour
     public void SetPlayers()
     {
         // Populate hashmap
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[0].ActorNumber, new PlayerData());
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[1].ActorNumber, new PlayerData());
+        foreach(Player player in PhotonNetwork.CurrentRoom.Players.Values)
+        {
+            playerData.Add(player.ActorNumber, new PlayerData());
+        }
 
         // Get roles decided in Main Menu scene and destroy delivery container (no longer needed)
         if (PhotonNetwork.IsMasterClient)
@@ -62,7 +65,7 @@ public class GameState : MonoBehaviour
             string otherRole = "Police";
             GameObject startingRoles = GameObject.Find("StartingRoles");
 
-            if (startingRoles.GetComponent<StartingRoles>() != null)
+            if (startingRoles != null)
             {
                 hostRole = startingRoles.GetComponent<StartingRoles>().hostRole;
                 otherRole = startingRoles.GetComponent<StartingRoles>().otherRole;
@@ -115,32 +118,39 @@ public class GameState : MonoBehaviour
 
         var view = GameObject.Find("ViewStorage").GetComponent<StageViewStorage>();
 
-        if (PhotonNetwork.IsMasterClient)
+
+        if (gameState > 4)
         {
-            if (gameState > 3)
+            if (PhotonNetwork.IsMasterClient)
             {
                 // Input checks if player swapping or game is finished, otherwise resets 
                 gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
             }
+            else return;
         }
 
         // Change user view to correct current stage
         switch (gameState)
         {
-            case 1:
+            case 1: // Setup
                 view.HideAll();
                 if (playerData[localPlayerNumber].position == "Raider") view.raider_S1_LocationMap.SetActive(true);
                 else view.police_S1_CarPlacer.SetActive(true);
                 break;
-            case 2:
+            case 2: // Raid
                 view.HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorArray[currentRaidLocation].SetActive(true);
-                else view.incomplete_GameStage.SetActive(true);
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorEnter.SetActive(true);
+                else view.police_S2_CarMoving.SetActive(true);
                 break;
-            case 3:
+            case 3: // Raid Results
                 view.HideAll();
-                if (playerData[localPlayerNumber].position == "Raider") view.incomplete_GameStage.SetActive(true);
-                else view.incomplete_GameStage.SetActive(true);
+                GameObject.Find("ViewStorage").GetComponent<RaidCompleteViewStorage>().UpdateText();
+                view.raidComplete.SetActive(true);
+                break;
+            case 4: // Shop
+                view.HideAll();
+                if (playerData[localPlayerNumber].position == "Raider") view.raider_Shop.SetActive(true);
+                else view.police_Shop.SetActive(true);
                 break;
             default:
                 EndGame();

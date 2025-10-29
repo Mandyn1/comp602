@@ -82,6 +82,8 @@ public class CarMenu : MonoBehaviour
         PlayerPrefs.SetString("Vehicle", "Car");
         PlayerPrefs.Save();
 
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
+
         // Enable the waiting scene
         waitingScene.SetActive(true);
 
@@ -98,6 +100,8 @@ public class CarMenu : MonoBehaviour
 
         PlayerPrefs.SetString("Vehicle", "Motorbike");
         PlayerPrefs.Save();
+
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
 
         waitingScene.SetActive(true);
 

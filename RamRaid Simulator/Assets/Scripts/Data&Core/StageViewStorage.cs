@@ -8,33 +8,13 @@ public class StageViewStorage : MonoBehaviour
     public GameObject raider_S1_CarTheft;
     public GameObject raider_S1_Waiting;
     public GameObject raider_S2_Indoor01;
-    public GameObject raider_S2_Indoor02;
-    public GameObject raider_S2_Indoor03;
-    public GameObject raider_S2_Indoor04;
-    public GameObject raider_S2_Outdoor01;
-    public GameObject raider_S2_Outdoor02;
-    public GameObject raider_S2_Outdoor03;
-    public GameObject raider_S2_Outdoor04;
+    public GameObject raider_S2_OutdoorEnter;
     public GameObject police_S1_CarPlacer;
-    public GameObject incomplete_GameStage;
+    public GameObject police_S2_CarMoving;
     public GameObject endGame;
-
-    public GameObject[] raider_S2_IndoorArray;
-    public GameObject[] raider_S2_OutdoorArray;
-
-    // On start populates indoor and outdoor arrays allowing access via an int value
-    void Start()
-    {
-        raider_S2_IndoorArray[0] = raider_S2_Indoor01;
-        raider_S2_IndoorArray[1] = raider_S2_Indoor02;
-        raider_S2_IndoorArray[2] = raider_S2_Indoor03;
-        raider_S2_IndoorArray[3] = raider_S2_Indoor04;
-
-        raider_S2_OutdoorArray[0] = raider_S2_Outdoor01;
-        raider_S2_OutdoorArray[1] = raider_S2_Outdoor02;
-        raider_S2_OutdoorArray[2] = raider_S2_Outdoor03;
-        raider_S2_OutdoorArray[3] = raider_S2_Outdoor04;
-    }
+    public GameObject raidComplete;
+    public GameObject raider_Shop;
+    public GameObject police_Shop;
 
     // Goes through each stage container checking if they are active and disabling them
     public void HideAll()
@@ -43,15 +23,12 @@ public class StageViewStorage : MonoBehaviour
         if (raider_S1_CarTheft.activeInHierarchy) raider_S1_CarTheft.SetActive(false);
         if (raider_S1_Waiting.activeInHierarchy) raider_S1_Waiting.SetActive(false);
         if (raider_S2_Indoor01.activeInHierarchy) raider_S2_Indoor01.SetActive(false);
-        if (raider_S2_Indoor02.activeInHierarchy) raider_S2_Indoor02.SetActive(false);
-        if (raider_S2_Indoor03.activeInHierarchy) raider_S2_Indoor03.SetActive(false);
-        if (raider_S2_Indoor04.activeInHierarchy) raider_S2_Indoor04.SetActive(false);
-        if (raider_S2_Outdoor01.activeInHierarchy) raider_S2_Outdoor01.SetActive(false);
-        if (raider_S2_Outdoor02.activeInHierarchy) raider_S2_Outdoor02.SetActive(false);
-        if (raider_S2_Outdoor03.activeInHierarchy) raider_S2_Outdoor03.SetActive(false);
-        if (raider_S2_Outdoor04.activeInHierarchy) raider_S2_Outdoor04.SetActive(false);
+        if (raider_S2_OutdoorEnter.activeInHierarchy) raider_S2_OutdoorEnter.SetActive(false);
         if (police_S1_CarPlacer.activeInHierarchy) police_S1_CarPlacer.SetActive(false);
-        if (incomplete_GameStage.activeInHierarchy) incomplete_GameStage.SetActive(false);
+        if (police_S2_CarMoving.activeInHierarchy) police_S2_CarMoving.SetActive(false);
         if (endGame.activeInHierarchy) endGame.SetActive(false);
+        if (raidComplete.activeInHierarchy) raidComplete.SetActive(false);
+        if (police_Shop.activeInHierarchy) police_Shop.SetActive(false);
+        if (raider_Shop.activeInHierarchy) raider_Shop.SetActive(false);
     }
 }

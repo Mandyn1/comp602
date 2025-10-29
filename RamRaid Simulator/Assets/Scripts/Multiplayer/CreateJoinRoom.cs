@@ -64,6 +64,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
         roomStage.SetActive(false);
         waitingStage.SetActive(true);
+
+        PhotonNetwork.AutomaticallySyncScene = true; // Forces users to follow host to new scene
     }
 
     // Leaves current room and returns to lobby
@@ -98,7 +100,8 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        PhotonNetwork.AutomaticallySyncScene = true; // Forces users to follow host to new scene
+        GameObject.Find("StartingRoles").GetComponent<StartingRoles>().saveRoles();
+
         PhotonNetwork.LoadLevel("GameLoop");
     }
 }

@@ -22,6 +22,7 @@ public class LockPickingManger : MonoBehaviour
     public TextMeshProUGUI failMess;
 
     [SerializeField] private CarMenu carMenu; //link to car menu
+    public GameObject raidManager;
 
     //PICKING MENCHANICS VALUIES 
     //(set as public for getting correct feel)
@@ -267,6 +268,10 @@ public class LockPickingManger : MonoBehaviour
         {
             carMenu.OnLockpickLose();
         }
+        else if (raidManager != null)
+        {
+            raidManager.GetComponent<RaidMinigameManager>().didLose();
+        }
         else
         {
             Debug.LogWarning("FAIL");
@@ -286,10 +291,22 @@ public class LockPickingManger : MonoBehaviour
         {
             carMenu.OnLockpickWin();
         }
+        else if (raidManager != null)
+        {
+            raidManager.GetComponent<RaidMinigameManager>().didWin();
+        }
         else
         {
             Debug.LogWarning("FAIL");
         }
+    }
+
+    public void ResetMinigame()
+    {
+        print("resteting minigame");
+        numPicks = 2;
+        hasPicked = false;
+        hasFailed = false;
     }
 }
 
