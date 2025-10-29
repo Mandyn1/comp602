@@ -33,6 +33,7 @@ public class GameState : MonoBehaviour
         // True if first round
         if (playerData == null)
         {
+            playerData = new Dictionary<int, PlayerData>();
             localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
             SetPlayers();
         }
