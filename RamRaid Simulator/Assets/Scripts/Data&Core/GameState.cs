@@ -31,7 +31,7 @@ public class GameState : MonoBehaviour
     public void GamePrep()
     {
         // True if first round
-        if (playerData.Count == 0)
+        if (playerData == null)
         {
             localPlayerNumber = PhotonNetwork.LocalPlayer.ActorNumber;
             SetPlayers();
@@ -52,8 +52,10 @@ public class GameState : MonoBehaviour
     public void SetPlayers()
     {
         // Populate hashmap
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[0].ActorNumber, new PlayerData());
-        playerData.Add(PhotonNetwork.CurrentRoom.Players[1].ActorNumber, new PlayerData());
+        foreach(Player player in PhotonNetwork.CurrentRoom.Players.Values)
+        {
+            playerData.Add(player.ActorNumber, new PlayerData());
+        }
 
         // Get roles decided in Main Menu scene and destroy delivery container (no longer needed)
         if (PhotonNetwork.IsMasterClient)

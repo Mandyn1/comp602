@@ -21,11 +21,20 @@ public class RaidCompleteViewStorage : MonoBehaviour
 
         cashTakeText.text = playerWallet.GetComponent<PlayerWallet>().balance.ToString();
 
-        player1NameText.text = playerArray[0].NickName;
-        player1ScoreText.text = gameState.playerData[playerArray[0].ActorNumber].score.ToString();
+        Player player1 = null;
+        Player player2 = null;
 
-        player2NameText.text = playerArray[1].NickName;
-        player2ScoreText.text = gameState.playerData[playerArray[1].ActorNumber].score.ToString();
+        foreach(Player p in PhotonNetwork.CurrentRoom.Players.Values)
+        {
+            if (gameState.localPlayerNumber == p.ActorNumber) player1 = p;
+            else player2 = p;
+        }
+
+        player1NameText.text = player1.NickName;
+        player1ScoreText.text = gameState.playerData[player1.ActorNumber].score.ToString();
+
+        player2NameText.text = player2.NickName;
+        player2ScoreText.text = gameState.playerData[player2.ActorNumber].score.ToString();
 
         wasCaughtText.text = "Escaped";
     }
