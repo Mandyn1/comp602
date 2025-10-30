@@ -103,6 +103,7 @@ public class RaidModeController : MonoBehaviour
         while (mover.active) yield return null;
         }
         Debug.Log("[Raid] arrived (path)");
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
     }
 
     IEnumerator DriveStraight(GameObject car, Vector3 target, float speed, float accel)
@@ -116,6 +117,7 @@ public class RaidModeController : MonoBehaviour
 
         while (mover.active) yield return null;
         Debug.Log("[Raid] arrived (straight)");
+        GameObject.Find("GameManager").GetComponent<SendEvents>().PlayerNowWaitingEvent();
     }
 
     // (see bounds in scene view 

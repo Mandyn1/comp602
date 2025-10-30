@@ -146,6 +146,8 @@ public class GameState : MonoBehaviour
                 break;
             case 2: // Raid
                 view.HideAll();
+                if (GameObject.Find("Motorbike(Clone)") != null) Destroy(GameObject.Find("Motorbike(Clone)"));
+                if (GameObject.Find("Car(Clone)") != null) Destroy(GameObject.Find("Car(Clone)"));
                 if (playerData[localPlayerNumber].position == "Raider") view.raider_S2_OutdoorEnter.SetActive(true);
                 else
                 {
