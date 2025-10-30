@@ -44,16 +44,10 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         // Next Round Event
         else if (eventCode == SendEvents.NextRoundEventCode)
         {
-            if ((bool)photonEvent.CustomData)
+            if (gs.hasPlayerSwapped) gs.EndGame();
+            else
             {
-                if (gs.hasPlayerSwapped) gs.EndGame();
-                else
-                {
-                    gs.PlayerSwap();
-                }
-
-                gs.roundCounter = 0;
-                gs.Reset();
+                gs.PlayerSwap();
             }
         }
 

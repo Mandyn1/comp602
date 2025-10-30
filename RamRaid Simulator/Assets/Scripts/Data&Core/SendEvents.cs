@@ -34,10 +34,10 @@ public class SendEvents : MonoBehaviourPunCallbacks
     }
 
     // Sync end of round logic
-    public void NextRoundEvent(bool swapOrEnd)
+    public void NextRoundEvent()
     {
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
-        PhotonNetwork.RaiseEvent(NextRoundEventCode, swapOrEnd, raiseEventOptions, SendOptions.SendReliable);
+        PhotonNetwork.RaiseEvent(NextRoundEventCode, null, raiseEventOptions, SendOptions.SendReliable);
     }
 
     // Sync starting positions

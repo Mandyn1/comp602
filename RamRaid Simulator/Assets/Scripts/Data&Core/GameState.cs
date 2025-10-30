@@ -96,6 +96,8 @@ public class GameState : MonoBehaviour
             else player.position = "Raider";
         }
         hasPlayerSwapped = true;
+        roundCounter = 0;
+        Reset();
     }
 
     // Display stats screen and allow for return to main menu at own time
@@ -129,7 +131,7 @@ public class GameState : MonoBehaviour
             if (PhotonNetwork.IsMasterClient)
             {
                 // Input checks if player swapping or game is finished, otherwise resets 
-                gameObject.GetComponent<SendEvents>().NextRoundEvent(roundCounter > maxRounds);
+                gameObject.GetComponent<SendEvents>().NextRoundEvent();
             }
             else return;
         }
