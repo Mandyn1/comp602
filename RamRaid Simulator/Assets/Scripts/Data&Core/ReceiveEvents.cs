@@ -44,11 +44,16 @@ public class ReceiveEvents : MonoBehaviour, IOnEventCallback
         // Next Round Event
         else if (eventCode == SendEvents.NextRoundEventCode)
         {
-            if (gs.hasPlayerSwapped) gs.EndGame();
-            else
+            if (gs.roundCounter > gs.maxRounds)
             {
-                gs.PlayerSwap();
+                if (gs.hasPlayerSwapped) gs.EndGame();
+                else
+                {
+                    gs.roundCounter = 0;
+                    gs.PlayerSwap();
+                }
             }
+            gs.Reset();
         }
 
         // Send starting (player) positions (police or raider). Runs once per player

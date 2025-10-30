@@ -31,7 +31,6 @@ public class GameState : MonoBehaviour
 
     public void GamePrep()
     {
-        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         // True if first round
         if (playerData == null)
         {
@@ -51,6 +50,7 @@ public class GameState : MonoBehaviour
     // Move to a fresh instance of GameLoop scene for next round
     public void Reset()
     {
+        PhotonNetwork.AutomaticallySyncScene = true; // Force other player to change scenes with room host
         if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel("GameLoop");
     }
 
@@ -96,8 +96,6 @@ public class GameState : MonoBehaviour
             else player.position = "Raider";
         }
         hasPlayerSwapped = true;
-        roundCounter = 0;
-        Reset();
     }
 
     // Display stats screen and allow for return to main menu at own time
