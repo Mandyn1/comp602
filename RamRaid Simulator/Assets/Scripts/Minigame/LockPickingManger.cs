@@ -10,7 +10,7 @@ public class LockPickingManger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Header("UI Components")]
-    public UnityEngine.Canvas thisMinigame;
+    public GameObject thisMinigame;
     public Slider stressBar;
     public Image cylinder;
     public Image pick;
@@ -261,7 +261,7 @@ public class LockPickingManger : MonoBehaviour
         //update status
         hasFailed = true;
         //set entire object as inactive
-        thisMinigame.gameObject.SetActive(false);
+        thisMinigame.SetActive(false);
 
         //tell car menu user has failed to pick lock
         if (carMenu != null)
@@ -284,7 +284,7 @@ public class LockPickingManger : MonoBehaviour
         hasPicked = true;
 
         //set entire object as inactive
-        thisMinigame.gameObject.SetActive(false);
+        thisMinigame.SetActive(false);
 
         //tell car menu user has picked lock
         if (carMenu != null)

@@ -28369,7 +28369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9fc3b7c79527e418116695c9492b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  thisMinigame: {fileID: 1849312873}
+  thisMinigame: {fileID: 1050701692}
   stressBar: {fileID: 690957483}
   cylinder: {fileID: 586647128}
   pick: {fileID: 806766597}
@@ -71022,7 +71022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9fc3b7c79527e418116695c9492b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  thisMinigame: {fileID: 1849312873}
+  thisMinigame: {fileID: 731777032}
   stressBar: {fileID: 1987404863}
   cylinder: {fileID: 347609390}
   pick: {fileID: 943008603}
