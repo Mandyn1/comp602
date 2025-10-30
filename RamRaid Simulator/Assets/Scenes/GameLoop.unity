@@ -23934,6 +23934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 491646316}
+  - component: {fileID: 491646317}
   m_Layer: 0
   m_Name: Police_S1_CarPlacementScene
   m_TagString: Untagged
@@ -23961,6 +23962,27 @@ Transform:
   - {fileID: 791690280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491646317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491646315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f685d26893e284e3988ea0dcb1746f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RaidModeController
+  placementRoot: {fileID: 217327312}
+  raidRoot: {fileID: 658931547}
+  carTag: PoliceCar
+  raidTag: RaidTarget
+  moveSpeed: 2
+  accel: 1.5
+  roadMask: {fileID: 2800000, guid: 1d973f07b520b461981a42e91c35c409, type: 3}
+  worldMin: {x: -45, y: -25}
+  worldMax: {x: 45, y: 25}
 --- !u!1 &494965600
 GameObject:
   m_ObjectHideFlags: 0
@@ -80329,7 +80351,6 @@ GameObject:
   - component: {fileID: 1566376902}
   - component: {fileID: 1566376901}
   - component: {fileID: 1566376900}
-  - component: {fileID: 1566376899}
   - component: {fileID: 1566376898}
   m_Layer: 0
   m_Name: Item1
@@ -80368,18 +80389,6 @@ MonoBehaviour:
   baseValue: 100
   multiplier: 1
   canBeStolenOnce: 1
---- !u!114 &1566376899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566376896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdafebc2d5ac06344afbe35902689a1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
   managerObject: {fileID: 546648215}
 --- !u!61 &1566376900
 BoxCollider2D:
@@ -81848,7 +81857,7 @@ MonoBehaviour:
   raider_S2_OutdoorEnter: {fileID: 1367226974}
   police_S1_CarPlacer: {fileID: 491646315}
   police_S2_CarMoving: {fileID: 491646315}
-  police_S2_CarMovingTrigger: {fileID: 1819037482}
+  police_S2_CarMovingTrigger: {fileID: 491646315}
   endGame: {fileID: 1191710317}
   raidComplete: {fileID: 1672754223}
   raider_Shop: {fileID: 2143364064}
@@ -84399,7 +84408,6 @@ GameObject:
   - component: {fileID: 1819037487}
   - component: {fileID: 1819037486}
   - component: {fileID: 1819037485}
-  - component: {fileID: 1819037484}
   m_Layer: 5
   m_Name: ReadyButton
   m_TagString: Untagged
@@ -84427,27 +84435,6 @@ RectTransform:
   m_AnchoredPosition: {x: -141, y: 63}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1819037484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819037482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f685d26893e284e3988ea0dcb1746f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RaidModeController
-  placementRoot: {fileID: 217327312}
-  raidRoot: {fileID: 658931547}
-  carTag: PoliceCar
-  raidTag: RaidTarget
-  moveSpeed: 2
-  accel: 1.5
-  roadMask: {fileID: 2800000, guid: 1d973f07b520b461981a42e91c35c409, type: 3}
-  worldMin: {x: -45, y: -25}
-  worldMax: {x: 45, y: 25}
 --- !u!114 &1819037485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84830,7 +84817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   followSpeed: 2
   target: {fileID: 1545020180}
-  mainCam: {fileID: 1858489790}
+  mainCam: {fileID: 1829528755}
 --- !u!1 &1839303956
 GameObject:
   m_ObjectHideFlags: 0
@@ -87594,30 +87581,13 @@ GameObject:
   - component: {fileID: 1970725462}
   - component: {fileID: 1970725461}
   - component: {fileID: 1970725460}
-  - component: {fileID: 1970725459}
   m_Layer: 5
   m_Name: Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1970725459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970725458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c461ce064f430499d62f3fb65f50d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicMinigameController
-  playerObj: {fileID: 163919709}
-  menuCanvas: {fileID: 1970725458}
-  currentTargetItem: {fileID: 0}
-  playerWallet: {fileID: 0}
+  m_IsActive: 0
 --- !u!114 &1970725460
 MonoBehaviour:
   m_ObjectHideFlags: 0

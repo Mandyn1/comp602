@@ -14,6 +14,7 @@ public class LootableItem : MonoBehaviour
     public bool IsStolen { get; private set; }
 
     private Collider2D _collider;
+    public GameObject managerObject;
 
     private void Awake()
     {
@@ -36,6 +37,15 @@ public class LootableItem : MonoBehaviour
 
         // Option A: hide the whole object after stealing
         gameObject.SetActive(false);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //check if the player collides with the collision box
+        if (!collision.CompareTag("Player")) return;
+
+        managerObject.GetComponent<RaidMinigameManager>().currentItem = gameObject;
+        managerObject.GetComponent<RaidMinigameManager>().ShowMenu();
     }
 
 #if UNITY_EDITOR
