@@ -63,7 +63,7 @@ public class RaidModeController : MonoBehaviour
         GameObject car = cars[0];
         //Transform best = targets[0].transform;
         float bestD = Vector3.Distance(best.position, car.transform.position);
-        for (int i = 1; i < targets.Length; i++)
+        for (int i = 1; i < cars.Length; i++)
         {
             float d = Vector3.Distance(best.position, cars[i].transform.position);
             if (d < bestD) { bestD = d; car = cars[i]; }
